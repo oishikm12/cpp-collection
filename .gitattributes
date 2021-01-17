@@ -1,0 +1,13 @@
+# Default text styling
+* text=auto
+* text eol=lf
+
+# Denote all files that are truly binary and should not be modified.
+*.eot binary
+*.ico binary
+*.jpg binary
+*.otf binary
+*.png binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
