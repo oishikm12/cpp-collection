@@ -97,12 +97,12 @@ void getUniqueInTriplets(vector<int> &arr, int len) {
 
     for (int i = 0; i < len; i += 1) {
         // We add to counter bits from every element in array
-        int len = 0;
+        int pos = 0;
         int num = arr[i];
 
         while (num > 0) {
-            counter[len] += (num & 1);
-            len += 1;
+            counter[pos] += (num & 1);
+            pos += 1;
             num = num >> 1;
         }
     }
