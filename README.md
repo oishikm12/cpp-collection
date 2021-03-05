@@ -23,7 +23,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
   
 ## Data Structures
 
-
+* **Linked List** - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next.
+* **Stack** - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out).
+* **Queue** - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
 
 ## Random Problems
 
@@ -41,4 +43,12 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * **Tiling Floors** - Given a floor with space 4 * N, the task is to find out how many possible combinations of tiles 1 * 4 can be placed either horizontally or vertically to fill the floor
 * **Tower of Hanoi** - Given 3 towers, each accepting a ring, the task is to move n rings from one to another, under the constraint that no bigger ring can be placed over a smaller one
 * **Keypad Strings** - Given a set of numbers, the task is to find out all possible names that could have been written should the numbers have been written on a mobile keypad
-
+* **String Permutation** - Given a string input, the task is to find out all possible permutations of that string or its subsequence
+* **N-Queens** - Given a chess board of size n * n, the task is to find out all possible configurations of placing n queens on the board such that none can reach the other in a single move
+* **Rat In a Maze** - Given a grid, filled with obstacles, task is to find all possible paths from one end of diagonal to other
+* **Sudoku** - Given a x * x board, task is to place a number in each block such that the number does not repeat in the entire row, or column, and also does not repeat if a section of 3 * 3 is taken from the board
+* **Balanced Parenthesis** - Given a mathematical equation, the task is to check if the number of opening parenthesis matches the number of closing parenthesis in order
+* **Stock Span** - Given stock values over multiple days, the task is to find for every given day, the no. of days one can go back such that the value of stock was less than that of current day
+* **Area under Histogram** - Given a histogram with random heights, the task is to find the largest possible rectangle that can be formed traversing across multiple histogram bars, limited by the bar with minimum height
+* **Max in Window** - Given a set of numbers and a given sub array size, the task is to find the maximum element in all possible contigious sub arrays of the given size
+* **Max Length Unique Word** - Given a string without a delimiter, the task is to find out the max length substring that only has unique letters in it

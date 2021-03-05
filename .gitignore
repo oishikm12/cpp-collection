@@ -2,6 +2,7 @@
 /build
 *.out
 *.exe
+*.o
 
 # misc
 /.vscode
