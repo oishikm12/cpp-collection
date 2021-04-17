@@ -23,7 +23,9 @@ int main() {
 
     cout << "Enter space delimited elements in each row of board." << endl;
     for (int i = 0; i < size; i += 1) {
-        for (int j = 0; j < size; j += 1) cin >> board[i][j];
+        string s;
+        cin >> s;
+        for (int j = 0; j < size; j += 1) board[i][j] = s[j] - '0';
     }
 
     bool success = placeNext(board, 0, 0);
