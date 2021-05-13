@@ -77,10 +77,19 @@ ll divPrimeMod(ll a, ll b, ll mod) { a = a % mod; b = b % mod; return (mulMod(a,
 ll permutation(ll n, ll r, ll mod, vector<ll> &fact, vector<ll> &ifact) { return mulMod(fact[n], ifact[n - r], mod); }
 ll combination(ll n, ll r, ll mod, vector<ll> &fact, vector<ll> &ifact) { return mulMod(mulMod(fact[n], ifact[n - r], mod), ifact[r], mod); }
 
-void split(vector<string> &words, string &s, char delim) {
-   string word;
-   istringstream tokenStream(s);
-   while (getline(tokenStream, word, delim)) words.pb(word);
+vector<string> split(string &s, char delim) {
+    vector<string> words;
+    string word;
+    istringstream tokenStream(s);
+    while (getline(tokenStream, word, delim)) words.pb(word);
+    return words;
+}
+
+string join(vector<string> &words, char delim) {
+    ostringstream tokenStream;
+    copy(words.begin(), words.end() - 1, ostream_iterator<int>(tokenStream, delim + ""));
+    tokenStream << words.back();
+    return tokenStream.str();
 }
 
 void sieve(vector<bool> &primes) {

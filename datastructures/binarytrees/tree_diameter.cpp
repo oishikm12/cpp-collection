@@ -8,11 +8,7 @@ class Node {
 
         Node() = default;
         Node(int d) : data(d), left(NULL), right(NULL) {}
-        ~Node() {
-            delete left;
-            delete right;
-            left = right = NULL;
-        }
+        ~Node() { delete left, delete right, left = right = NULL; }
 };
 
 Node* buildTree();

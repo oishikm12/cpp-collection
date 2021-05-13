@@ -1,5 +1,7 @@
 #include <iostream>
 #include <queue>
+#include <stack>
+#include <vector>
 
 /**
  * Binary Tree consists of at most two nodes connected to the root
@@ -65,8 +67,17 @@ namespace binarytree {
             // Traverses the tree in Inorder, ie. root prints middle
             void inorderTraversal(Node<T>*);
 
-            // Traverses the tree in postorder, ie. root prints last
+            // Traverses the tree in Postorder, ie. root prints last
             void postorderTraversal(Node<T>*);
+
+            // Traverses the tree in Preorder iteratively, ie. root prints first
+            void preorderIterative();
+
+            // Traverses the tree in Inorder iteratively, ie. root prints middle
+            void inorderIterative();
+
+            // Traverses the tree in Postorder iteratively, ie. root prints last
+            void postorderIterative();
 
             // Performs a breadth first traversal, ie. level wise
             void bfs();
@@ -189,6 +200,100 @@ namespace binarytree {
     }
 
     template <typename T>
+    void BinaryTree<T> :: preorderIterative() {
+        if (ROOT == NULL) return;
+
+        // Iterative preorder requires the use of stack to store
+        // what we have already traversed and go back to it
+        std::stack<Node<T>*> container;
+        Node<T> *temp = ROOT;
+        container.push(temp);
+
+        // This is used to store the output
+        std::vector<T> list;
+
+        while(!container.empty()) {
+            // Since preorder invloves printing the data first
+            // we pop whatever is inside the stack and print its data
+            temp = container.top();
+            container.pop();
+            list.push_back(temp->data);
+
+            // We then move its left & right sub child to the stack
+            // Since stack is LIFO, we push left last, so its the
+            // first to come out in next iteration as per preorder
+            if (temp->right) container.push(temp->right);
+            if (temp->left) container.push(temp->left);
+        }
+
+        // Printing whatever is inside list
+        for (int i = 0; i < list.size(); i += 1) std::cout << list[i] << (i == list.size() - 1 ? "" : " ");
+    }
+
+    template <typename T>
+    void BinaryTree<T> :: inorderIterative() {
+        if (ROOT == NULL) return;
+
+        // Iterative inorder requires the use of stack to store
+        // what we have already traversed and go back to it
+        std::stack<Node<T>*> container;
+        Node<T> *temp = ROOT;
+
+        // This is used to store the output
+        std::vector<T> list;
+
+        while(temp || !container.empty()) {
+            // In case of inorder, we traverse to the leftmost of
+            // every node before printing its value & moving right
+            while (temp) {
+                container.push(temp);
+                temp = temp->left;
+            }
+
+            // This way we will always have the leftmost value
+            temp = container.top();
+            container.pop();
+            list.push_back(temp->data);
+
+            // After printing data of head we move to its right subtree
+            temp = temp->right;
+        }
+
+        // Printing whatever is inside list
+        for (int i = 0; i < list.size(); i += 1) std::cout << list[i] << (i == list.size() - 1 ? "" : " ");
+    }
+
+    template <typename T>
+    void BinaryTree<T> :: postorderIterative() {
+        if (ROOT == NULL) return;
+
+        // Iterative postorder requires the use of stack to store
+        // what we have already traversed and go back to it
+        std::stack<Node<T>*> container;
+        Node<T> *temp = ROOT;
+        container.push(temp);
+
+        // This is used to store the output
+        std::vector<T> list;
+
+        while(!container.empty()) {
+            // Postorder functions in exact reverse of preorder
+            // Hence we store the current data in list first
+            temp = container.top();
+            container.pop();
+            list.push_back(temp->data);
+
+            // Since postorder is right first, we push right at the end
+            if (temp->left) container.push(temp->left);
+            if (temp->right) container.push(temp->right);
+        }
+
+        // Printing whatever is inside list in reverse order
+        // because postorder reads rightmost first
+        for (int i = list.size() - 1; i >= 0; i -= 1) std::cout << list[i] << (i == 0 ? "" : " ");
+    }
+
+    template <typename T>
     void BinaryTree<T> :: bfs() {
         // In order to traverse level wise we use a queue to store 
         // current levels nodes. Since queue is FIFO, this ensures 
@@ -197,24 +302,22 @@ namespace binarytree {
 
         Node<T> *temp = ROOT;
         container.push(temp);
-        // By inserting an extra NULL we can identify when a level changes
-        container.push(NULL);
 
         while (!container.empty()) {
-            temp = container.front();
-            container.pop();
+            // By checking its size we know exactly how many nodes in this level
+            int n = container.size();
 
-            if (temp == NULL) {
-                std::cout << std::endl;
-                // There are more levels below, so we use another seperator
-                if (!container.empty()) container.push(NULL);
-            } else {
+            while (n--) {
+                temp = container.front();
+                container.pop();
                 std::cout << temp->data << " ";
 
                 // We check if it has children and accordingly print
                 if (temp->left != NULL) container.push(temp->left);
                 if (temp->right != NULL) container.push(temp->right);
             }
+
+            std::cout << std::endl;
         }
     }
 

@@ -9,11 +9,7 @@ class Node {
 
         Node() = default;
         Node(int d) : data(d), left(NULL), right(NULL) {}
-        ~Node() {
-            delete left;
-            delete right;
-            left = right = NULL;
-        }
+        ~Node() { delete left, delete right, left = right = NULL; }
 };
 
 Node* buildTree();
@@ -78,22 +74,21 @@ void printTree(Node *root) {
 
     Node *temp = root;
     container.push(temp);
-    // By inserting an extra NULL we can identify when a level changes
-    container.push(NULL);
 
     while (!container.empty()) {
-        temp = container.front();
-        container.pop();
+        // By checking its size we know exactly how many nodes in this level
+        int n = container.size();
 
-        if (temp == NULL) {
-            cout << endl;
-            // There are more levels below, so we use another seperator
-            if (!container.empty()) container.push(NULL);
-        } else {
+        while (n--) {
+            temp = container.front();
+            container.pop();
             cout << temp->data << " ";
+
             // We check if it has children and accordingly print
             if (temp->left != NULL) container.push(temp->left);
             if (temp->right != NULL) container.push(temp->right);
         }
+
+        cout << endl;
     }
 }
