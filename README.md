@@ -26,6 +26,22 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 * [**Linked List**](datastructures/linked_list.cpp) - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next.
   * [**Linked List STL Implementation**](datastructures/linked_list_stl.cpp) - Linked list using ``list`` header provided by C++
+  * [**Add One**](datastructures/linkedlists/add_one.cpp) - Task is to consider a number represented via linked list and add 1 to it
+  * [**Add Two Numbers**](datastructures/linkedlists/add_two_num.cpp) - Given two linked lists, task is to consider them a number and add them into one
+  * [**Clone Arbitary Pointers**](datastructures/linkedlists/clone_random_ptr.cpp) - Given a linked list with arbitary connection between nodes, task is to clone such a list
+  * [**Delete Greater Right**](datastructures/linkedlists/delete_greater_right.cpp) - Given a linked list, task is to delete every such node which has a greater element to its right
+  * [**Flatten a List**](datastructures/linkedlists/flatten_list.cpp) - Given a 2D linked list consisitong of right & bottom pointers, task is to flatten the list into a single list with only nodes in bottom pointers
+  * [**Group Reverse**](datastructures/linkedlists/group_reverse.cpp) - Given a linked list, we need to reverse every ``k`` subsections of the list
+  * [**nth From End**](datastructures/linkedlists/nth_from_end.cpp) - Given a linked list, task is to print the nth number from the end in a single traversal
+  * [**Palindrome**](datastructures/linkedlists/palindrome.cpp) - Given a linked list, task is to check if the list is palindromic i.e. the list remains the same when read from end
+  * [**Intersection**](datastructures/linkedlists/list_intersection.cpp) - Given two linked lists, task is to check how many elements are common to both
+  * [**Quicksort**](datastructures/linkedlists/list_qsort.cpp) - Given a linked list, task is to sort the list via quicksort
+  * [**Segregate Odd Even**](datastructures/linkedlists/segregate_odd_even.cpp) - Given a linked list, task is to order all the even elements to the front & odd to end
+  * [**Circular Deletion**](datastructures/linkedlists/circular_deletion.cpp) - Given a circular linked list, task is to delete a node in it
+  * [**K-Distance Selection Sort**](datastructures/linkedlists/dll_selections_sort.cpp) - Given a doubly linked list, task is to sort it, when every node is at most ``k`` position away from its sorted position
+  * [**Reversal of DLL**](datastructures/linkedlists/dll_reversal.cpp) - Given a doubly linked list, task is to reverse the entire list
+  * [**Triplets in DLL**](datastructures/linkedlists/dll_triplets.cpp) - Given a doubly linked list and a certain sum, task is to find triplets that equal the sum
+  * [**Non Repeating String in List**](datastructures/linkedlists/non_rep_str.cpp) - Given a string, task is to used a doubly linked list in order to replace the list with non repeating letters in the string
 * [**Stack**](datastructures/stack.cpp) - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out).
   * [**Stack STL Implementation**](datastructures/stack_stl.cpp) - Stack using ``stack`` header provided by C++
 * [**Queue**](datastructures/queue.cpp) - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
@@ -41,6 +57,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Is Balanced**](datastructures/binarytrees/is_balanced.cpp) - Given a binary tree, task is to check if the tree is balanced or not
   * [**Diagonal Traversal**](datastructures/binarytrees/diagonal_traversal.cpp) - Given a binary tree, task is to print the tree in a diagonal manner
   * [**Boundary View**](datastructures/binarytrees/boundary_view.cpp) - Given a binary tree, the task is to print all nodes which form the boundary of the tree
+  * [**Tree from Balanced Parenthesis**](datastructures/binarytrees/tree_from_string.cpp) - Given a string with parenthesis representing left and then right subtree, task is to construct an actual tree from it
 * [**Binary Search Tree**](datastructures/binary_search_tree.cpp) - A binary search tree, also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a key greater than all the keys in the node's left subtree and less than those in its right subtree
 
 ## Competitive Problems
@@ -92,8 +109,24 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Adhoc Problems
 
 * [**Rainwater Trapping**](problems/rain_water_trapping.cpp) - Given n non-negative integers representing an elevation map where the width of each bar is 1, the task is to compute how much water it is able to trap after raining.
+* [**Equalize Strings**](problems/equalize_str.cpp) - Given two strings task is to convert one to another in minimum cost, where swappings costs distance between swap, and flipping costs 1.
+* [**Rectangular Area**](problems/rectangular_area.cpp) - Given N rectangles, which are centered in the center of the Cartesian coordinate system and their sides are parallel to the coordinate axes, task is to find the area covered by these rectangles on the grid
+* [**Light Up the Bulbs**](problems/light_up_bulbs.cpp) - Given a set of bulbs in random state, task is to find minimum cost to turn on all lights, given reversing a set of bulbs takes some cost and toggling adjacent bulbs takes another
+* [**Interesting Sequences**](problems/interesting_seq.cpp) - Given a series of numbers, task is to convert all the numbers into the same in minimal cost wherein we can either increase 1 & decrease 1 or just increase 1; each with its own cost.
+* [**Winning Strategy**](problems/winning_strategy.cpp) - Given a sequential series of numbers from 1, task is to check if it is possible to convert this into another sequence, given you can only swap adjacents and can swap any player at most twice
 
 ### Dynamic Programming
+
+* [**Alpha Code**](problems/alpha_code.cpp) - Given a sequence of numbers wherein each number represents an alphabet, task is to find out how many possible sequence of characters are possible
+* [**Coin Change**](problems/coin_change.cpp) - Given a certain value and certain denominations, task is to find out how many ways can we achieve the value by using those denominations
+* [**Magic Grid**](problems/magic_grid.cpp) - Given a 2D grid consisting of both positive & negative values, task is to find the least starting energy needed to travel from top left to bottom right, such that the energy value never drops below 1, when travelling to any grid
+* [**Numerical Substrings**](problems/numerical_substrings.cpp) - Given a number as a string, task is to find the sum of all possible substrings of the string as number
+* [**Construct the Array**](problems/construct_the_array.cpp) - Given the length of an array, starting and ending of the array, the task is to find the number of ways to construct an array such that consecutive positions contain different values.
+* [**Boredom**](problems/boredom.cpp) - Given a set of numbers, the task is to find the maximum points one can earn if at any turn, they can select a number, get that much points, however all number +1 & -1 to that number gets destroyed
+* [**Minimum Chocolates**](problems/minimum_chocolates.cpp) - Given a number of students with scores, task is to ditribute chocolates between them such that, in case of adjacent people, the one with more score gets more, equal score may get different. Everyone gets at least 1 chocolate
+* [**Square Count**](problems/min_square_count.cpp) - Given a number, task is to find out the count of sequences where sum of squares of those numbers in the sequence would result in the selected number
+* [**Vanya & GCD**](problems/vanya_gcd.cpp) - Given a list of numbers, task is to find the number of increasing subsequences possible with ``GCD = 1``
+* [**Angry Children**](problems/angry_children.cpp) - Given a list of numbers and a number ``k``, task is to select k such numbers such that the absolute difference between them is the minimal
 
 ### Bit Manipulation & Bit Masking
 

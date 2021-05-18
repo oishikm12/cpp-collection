@@ -61,7 +61,7 @@ namespace bstree {
             Node<T>* deleteInBST(Node<T>*, T);
 
             // Preserves BST when deleteing element
-            Node<T>* deleteAndRestoreTree(Node<T>*, T);
+            Node<T>* deleteAndRestoreTree(Node<T>*);
 
             // Caller function
             void preorder();
@@ -175,11 +175,11 @@ namespace bstree {
     Node<T>* BinarySearchTree<T> :: deleteInBST(Node<T> *curr, T data) {
         if (curr == NULL) return NULL;
 
-        // Finds the exact position to delet from and recursively call it
+        // Finds the exact position to delete from and recursively call it
         if (data < curr->data) {
             curr->left = deleteInBST(curr->left, data);
         } else if (data == curr->data) {
-            curr = deleteAndRestoreTree(curr, data);
+            curr = deleteAndRestoreTree(curr);
         } else {
             curr->right = deleteInBST(curr->right, data);
         }
@@ -188,7 +188,7 @@ namespace bstree {
     }
 
     template <typename T>
-    Node<T>* BinarySearchTree<T> :: deleteAndRestoreTree(Node<T> *curr, T data) {
+    Node<T>* BinarySearchTree<T> :: deleteAndRestoreTree(Node<T> *curr) {
         // If the node has no child we simply delete it
         if (curr->right == NULL && curr->right == NULL) {
             delete curr;
