@@ -47,6 +47,9 @@ int main() {
     print(head3);
 
     cout << endl;
+    delete head1;
+    delete head2;
+    delete head3;
 
     return 0;
 }

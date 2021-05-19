@@ -34,6 +34,7 @@ int main() {
     printTree(root);
 
     cout << endl;
+    delete root;
 
     return 0;
 }

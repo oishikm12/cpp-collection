@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cmath>
 using namespace std;
 
 int main() {
@@ -27,7 +26,7 @@ int main() {
     sort(arr.begin(), arr.end());
 
     // We consider the minimum cost to be the max first
-    int ans = INFINITY;
+    int ans = INT_MAX;
 
     // We traverse over all possible value of elements in
     // the array, the max value is always the greatest in arr

@@ -42,6 +42,7 @@ int main() {
     else cout << "\nThe element is: " << val << "." << endl;
 
     cout << endl;
+    delete head;
 
     return 0;
 }

@@ -34,6 +34,7 @@ int main() {
     for (auto &x: zigBfs) cout << x << " ";
 
     cout << endl << endl;
+    delete root;
 
     return 0;
 }

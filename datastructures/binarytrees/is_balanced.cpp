@@ -36,6 +36,7 @@ int main() {
     else cout << "\nThe tree is not balanced." << endl;
 
     cout << endl;
+    delete root;
 
     return 0;
 }

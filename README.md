@@ -6,25 +6,25 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 ## Algorithms
 
-* [**Combinatorics**](algorithms/combinatorics.cpp) - Simple implementation of factorial to demonstrate permutation & combination.
-* [**Kadane's Algorithm**](algorithms/kadane_subarr.cpp) - It is used to find the maximum sum of possible subarrays of a given set of integers. (Circular & Non-Circular Implementation)
+* [**Combinatorics**](algorithms/combinatorics.cpp) - Simple implementation of factorial to demonstrate permutation & combination
+* [**Kadane's Algorithm**](algorithms/kadane_subarr.cpp) - It is used to find the maximum sum of possible subarrays of a given set of integers (Circular & Non-Circular Implementation)
 * [**Sieve of Eratostenes**](algorithms/sieve_eratostenes.cpp) - A table of primes is prepared by eliminating multiples of each number as non prime
 * [**Euclid's Algorithm**](algorithms/euclid_hcf_lcm.cpp) - Simple Modulo Operations to find out HCF / GCD & LCM of numbers
-* [**Bubble Sort**](algorithms/bubble_sort.cpp) - It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
-* [**Insertion Sort**](algorithms/insertion_sort.cpp) - It is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
-* [**Selection Sort**](algorithms/selection_sort.cpp) - The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning.
+* [**Bubble Sort**](algorithms/bubble_sort.cpp) - It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order
+* [**Insertion Sort**](algorithms/insertion_sort.cpp) - It is a simple sorting algorithm that builds the final sorted array (or list) one item at a time
+* [**Selection Sort**](algorithms/selection_sort.cpp) - The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning
 * [**Counting Sort**](algorithms/counting_sort.cpp) - It is an algorithm for sorting a collection of objects according to keys that are small integers; that is, it is an integer sorting algorithm
-* [**Merge Sort**](algorithms/merge_sort.cpp) - It is a Divide & Conquer algorithm for dividing the input array into two halves, calls itself for the two halves, and then sorts them and merges the two sorted halves.
+* [**Merge Sort**](algorithms/merge_sort.cpp) - It is a Divide & Conquer algorithm for dividing the input array into two halves, calls itself for the two halves, and then sorts them and merges the two sorted halves
 * [**Quick Sort**](algorithms/quick_sort.cpp) - It is a Divide and Conquer algorithm for picking an element as pivot and partitioning the given array around the picked pivot, thereby moving the pivot element into its sorted position
-* [**Staircase Search**](algorithms/staircase_search.cpp) - Fastest way to search in a 2D matrix by traversing in a diagonal fashiont.
+* [**Staircase Search**](algorithms/staircase_search.cpp) - Fastest way to search in a 2D matrix by traversing in a diagonal fashiont
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
-* [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one.
+* [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
 * [**Floyd's Cycle**](algorithms/floyds_cycle.cpp) - It is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds. Should the two meet, we confirm presence of cycle in the list
   
 ## Data Structures
 
-* [**Linked List**](datastructures/linked_list.cpp) - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next.
+* [**Linked List**](datastructures/linked_list.cpp) - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next
   * [**Linked List STL Implementation**](datastructures/linked_list_stl.cpp) - Linked list using ``list`` header provided by C++
   * [**Add One**](datastructures/linkedlists/add_one.cpp) - Task is to consider a number represented via linked list and add 1 to it
   * [**Add Two Numbers**](datastructures/linkedlists/add_two_num.cpp) - Given two linked lists, task is to consider them a number and add them into one
@@ -42,7 +42,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Reversal of DLL**](datastructures/linkedlists/dll_reversal.cpp) - Given a doubly linked list, task is to reverse the entire list
   * [**Triplets in DLL**](datastructures/linkedlists/dll_triplets.cpp) - Given a doubly linked list and a certain sum, task is to find triplets that equal the sum
   * [**Non Repeating String in List**](datastructures/linkedlists/non_rep_str.cpp) - Given a string, task is to used a doubly linked list in order to replace the list with non repeating letters in the string
-* [**Stack**](datastructures/stack.cpp) - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out).
+* [**Stack**](datastructures/stack.cpp) - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out)
   * [**Stack STL Implementation**](datastructures/stack_stl.cpp) - Stack using ``stack`` header provided by C++
 * [**Queue**](datastructures/queue.cpp) - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
   * [**Queue STL Implementation**](datastructures/queue_stl.cpp) - Queue using ``queue`` header provided by C++
@@ -58,14 +58,27 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Diagonal Traversal**](datastructures/binarytrees/diagonal_traversal.cpp) - Given a binary tree, task is to print the tree in a diagonal manner
   * [**Boundary View**](datastructures/binarytrees/boundary_view.cpp) - Given a binary tree, the task is to print all nodes which form the boundary of the tree
   * [**Tree from Balanced Parenthesis**](datastructures/binarytrees/tree_from_string.cpp) - Given a string with parenthesis representing left and then right subtree, task is to construct an actual tree from it
+  * [**Tree to DLL**](datastructures/binarytrees/tree_to_doubly_linked_list.cpp) - Given a binary tree, task is to convert it into a doubly linked list
+  * [**Leaves at Tree**](datastructures/binarytrees/leaves_at_level.cpp) - Given a binary tree, task is to confirm that all leaves are at the same level
+  * [**Duplicate SubTree**](datastructures/binarytrees/duplicate_subtree.cpp) - Given a binary tree, task is to find if there exists a duplicte subtree with height at min 2
+  * [**Largest Subtree Sum**](datastructures/binarytrees/largest_subtree_sum.cpp) - Given a binary tree, task is to find such a subtree whose sum is the maximum
+  * [**Largest Non-Adjacent Sum**](datastructures/binarytrees/largest_nonadj_sum.cpp) - Given a binary tree task is to find the largest possible sum such that no two nodes are adjacent
+  * [**Lowest Common Ancestor**](datastructures/binarytrees/least_common_ancestor.cpp) - Given a binary tree and two nodes, task is to find out the node where they meet
+  * [**k-th Ancestor**](datastructures/binarytrees/kth_ancestor.cpp) - Given a binary tree and a node, task is to fins the k-th ancestor of this node
+  * [**Isomorphic Tree**](datastructures/binarytrees/isomorphic_tree.cpp) - Given two binary trees, task is to check if the trees are isomorphic, i.e. one can be derived from other by swapping some nodes
+  * [**n-Ary Mirror**](datastructures/binarytrees/nary_mirror.cpp) - Given two n-Ary trees, task is to check if the two trees are mirrors of each other or not
 * [**Binary Search Tree**](datastructures/binary_search_tree.cpp) - A binary search tree, also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a key greater than all the keys in the node's left subtree and less than those in its right subtree
 
 ## Competitive Problems
 
 ### Basics (Arrays, Strings & Matrices)
 
-* [**Spiral Printing**](problems/spiral_print.cpp) - Given a 2D matrix, the task is to print each element in the matrix in order of their apperance, i.e. for, ``[[1 2 3] [4 5 6] [7 8 9]]``, spiral would be ``[[1 2 3] [6 9 8] [7 4 5]]``.
-* [**Image Rotation**](problems/image_rotation.cpp) - Given a 2D matrix, the task is to rotate the given matrix 90 degrees, in O(1) time, i.e. w/o use of any other array.
+* [**Smallest Difference**](problems/smallest_difference.cpp) - Given two arrays, task is to find two elements in the arrays such that their difference is the minimal and print that difference
+* [**Longest Peak**](problems/longest_peak.cpp) - Given a list of numbers, task is to find out largest length of a subsequence where numbers are ascending to a point and descending after that
+* [**Minimize the Heights**](problems/minimize_heights.cpp) - Given an array of heights and a integer ``K``, the task is to to modify the height of each tower either by increasing or decreasing them by K only once and then find the difference between max & min heights
+* [**Spiral Printing**](problems/spiral_print.cpp) - Given a 2D matrix, the task is to print each element in the matrix in order of their apperance, i.e. for, ``[[1 2 3] [4 5 6] [7 8 9]]``, spiral would be ``[[1 2 3] [6 9 8] [7 4 5]]``
+* [**Image Rotation**](problems/image_rotation.cpp) - Given a 2D matrix, the task is to rotate the given matrix 90 degrees, in O(1) time, i.e. w/o use of any other array
+* [**ZigZag Printing**](problems/zigzag_matrix.cpp) - Given a 2D matrix, the task is to traverse this matrix in diagonal first manner where the direction of printing alternates everytime we reach an edge
 
 ### Recursion
 
@@ -109,7 +122,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Adhoc Problems
 
 * [**Rainwater Trapping**](problems/rain_water_trapping.cpp) - Given n non-negative integers representing an elevation map where the width of each bar is 1, the task is to compute how much water it is able to trap after raining.
-* [**Equalize Strings**](problems/equalize_str.cpp) - Given two strings task is to convert one to another in minimum cost, where swappings costs distance between swap, and flipping costs 1.
+* [**Equalize Strings**](problems/equalize_str.cpp) - Given two strings task is to convert one to another in minimum cost, where swappings costs distance between swap, and flipping costs 1
 * [**Rectangular Area**](problems/rectangular_area.cpp) - Given N rectangles, which are centered in the center of the Cartesian coordinate system and their sides are parallel to the coordinate axes, task is to find the area covered by these rectangles on the grid
 * [**Light Up the Bulbs**](problems/light_up_bulbs.cpp) - Given a set of bulbs in random state, task is to find minimum cost to turn on all lights, given reversing a set of bulbs takes some cost and toggling adjacent bulbs takes another
 * [**Interesting Sequences**](problems/interesting_seq.cpp) - Given a series of numbers, task is to convert all the numbers into the same in minimal cost wherein we can either increase 1 & decrease 1 or just increase 1; each with its own cost.
@@ -121,7 +134,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Coin Change**](problems/coin_change.cpp) - Given a certain value and certain denominations, task is to find out how many ways can we achieve the value by using those denominations
 * [**Magic Grid**](problems/magic_grid.cpp) - Given a 2D grid consisting of both positive & negative values, task is to find the least starting energy needed to travel from top left to bottom right, such that the energy value never drops below 1, when travelling to any grid
 * [**Numerical Substrings**](problems/numerical_substrings.cpp) - Given a number as a string, task is to find the sum of all possible substrings of the string as number
-* [**Construct the Array**](problems/construct_the_array.cpp) - Given the length of an array, starting and ending of the array, the task is to find the number of ways to construct an array such that consecutive positions contain different values.
+* [**Construct the Array**](problems/construct_the_array.cpp) - Given the length of an array, starting and ending of the array, the task is to find the number of ways to construct an array such that consecutive positions contain different values
 * [**Boredom**](problems/boredom.cpp) - Given a set of numbers, the task is to find the maximum points one can earn if at any turn, they can select a number, get that much points, however all number +1 & -1 to that number gets destroyed
 * [**Minimum Chocolates**](problems/minimum_chocolates.cpp) - Given a number of students with scores, task is to ditribute chocolates between them such that, in case of adjacent people, the one with more score gets more, equal score may get different. Everyone gets at least 1 chocolate
 * [**Square Count**](problems/min_square_count.cpp) - Given a number, task is to find out the count of sequences where sum of squares of those numbers in the sequence would result in the selected number
@@ -157,6 +170,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Trees
 
 * [**Catalan Numbers**](problems/catalan.cpp) - Given a limit, print all consequetive catalan number upto that point (Number of BST with 'n' nodes)
+* [**Min Swaps Required**](problems/min_swaps_bt2bst.cpp) - Given a complete binary tree in array format, task is to determine how many swaps will be required to convert this into a binary search tree.
+* [**Smallest Distance between Nodes**](problems/smallest_node_distance.cpp) - Given a binary tree and two nodes, task is to find the smallest distance between them
 
 ### Heaps
 

@@ -39,6 +39,7 @@ int main() {
     else cout << "\nThe list is not palindromic." << endl;
 
     cout << endl;
+    delete head;
 
     return 0;
 }

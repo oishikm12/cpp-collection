@@ -35,6 +35,7 @@ int main() {
     for (auto &x: diag) cout << x << " ";
 
     cout << endl << endl;
+    delete root;
 
     return 0;
 }

@@ -38,6 +38,9 @@ int main() {
     cout << endl << "The list after deletion is:" << endl;
     print(head);
 
+    cout << endl;
+    delete head;
+
     return 0;
 }
 

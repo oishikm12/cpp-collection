@@ -40,6 +40,7 @@ int main() {
     printSumTriplets(head, x);
 
     cout << endl;
+    delete head;
 
     return 0;
 }

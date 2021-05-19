@@ -29,6 +29,8 @@ int main() {
     string b = firstNonRep(a);
     cout << b << endl;
 
+    cout << endl;
+
     return 0;
 }
 
@@ -99,6 +101,8 @@ string firstNonRep(string a) {
         if (head) b.push_back(head->data);
         else b.push_back('#');
     }
+
+    delete head;
 
     return b;
 }

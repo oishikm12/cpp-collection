@@ -37,6 +37,7 @@ int main() {
     print(head);
 
     cout << endl << endl;
+    delete head;
 
     return 0;
 }

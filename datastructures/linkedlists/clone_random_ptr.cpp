@@ -44,6 +44,9 @@ int main() {
     cout << "\nThe copied list is," << endl;
     print(newHead);
 
+    cout << endl;
+    delete head;
+
     return 0;
 }
 

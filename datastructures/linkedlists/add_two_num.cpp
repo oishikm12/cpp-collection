@@ -49,6 +49,8 @@ int main() {
     print(addTwoLists(head1, head2));
 
     cout << endl;
+    delete head1;
+    delete head2;
 
     return 0;
 }

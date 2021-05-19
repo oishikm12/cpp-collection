@@ -39,6 +39,7 @@ int main() {
     for (auto &x: boundary) cout << x << " ";
 
     cout << endl << endl;
+    delete root;
 
     return 0;
 }

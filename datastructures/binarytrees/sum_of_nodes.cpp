@@ -13,6 +13,7 @@ class Node {
 };
 
 Node* buildTree();
+pair<int, bool> sumBalanced(Node *);
 int replaceSum(Node *);
 void printTree(Node *);
 
@@ -27,6 +28,10 @@ int main() {
     Node *root;
     cout << "Enter space seperated elements of the tree :" << endl;
     root = buildTree();
+
+    bool isSumTree = sumBalanced(root).second;
+
+    if (isSumTree) cout << "\nThe tree is already a sum of it's nodes, re-doing." << endl;
 
     replaceSum(root);
 
@@ -66,6 +71,24 @@ int replaceSum(Node *root) {
     // We store the sum of their children in current node, and return the sum
     root->data = leftSum + rightSum;
     return temp + root->data;
+}
+
+pair<int, bool> sumBalanced(Node *root) {
+    if (!root) return make_pair(0, true);
+    
+    pair<int, bool> left = sumBalanced(root->left);
+    pair<int, bool> right = sumBalanced(root->right);
+    
+    int sum = left.first + right.first;
+    
+    // Checking if this is a leaf node or if sum = left + right
+    // We return the sum as first of pair, and wether 
+    // this node was a sum tree, as second of pair
+    if (sum == 0 || sum == root->data) {
+        return make_pair(sum + root->data, left.second && right.second);
+    }
+    
+    return make_pair(sum + root->data, false);
 }
 
 void printTree(Node *root) {

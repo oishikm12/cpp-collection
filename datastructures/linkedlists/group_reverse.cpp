@@ -41,6 +41,7 @@ int main() {
     print(head);
 
     cout << endl;
+    delete head;
 
     return 0;
 }
