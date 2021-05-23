@@ -68,6 +68,18 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Isomorphic Tree**](datastructures/binarytrees/isomorphic_tree.cpp) - Given two binary trees, task is to check if the trees are isomorphic, i.e. one can be derived from other by swapping some nodes
   * [**n-Ary Mirror**](datastructures/binarytrees/nary_mirror.cpp) - Given two n-Ary trees, task is to check if the two trees are mirrors of each other or not
 * [**Binary Search Tree**](datastructures/binary_search_tree.cpp) - A binary search tree, also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a key greater than all the keys in the node's left subtree and less than those in its right subtree
+  * [**Inorder Predecessor & Successor**](datastructures/binarysearchtrees/predecessor_successor.cpp) - Given a binary search tree, and a specific node, task is to find its inorder predecessor and inorder successor
+  * [**Lowest Common Ancestor**](datastructures/binarysearchtrees/lca_bst.cpp) - Given a binary search tree and two nodes, task is to find the their lowest common ancestor
+  * [**Tree from Preorder**](datastructures/binarysearchtrees/bst_from_preorder.cpp) - Given a preorder traversal of a BST, task is to construct a binary search tree from this
+  * [**BT to BST**](datastructures/binarysearchtrees/bt_to_bst.cpp) - Given a binary tree, task is to convert this into a binary search tree, keeping the structure intact
+  * [**Balancing Skewness**](datastructures/binarysearchtrees/balanced_bst.cpp) - Given a skewed binary search tree, task is to convert this into a balanced binary search tree
+  * [**Merge Balanced Trees**](datastructures/binarysearchtrees/merge_balanced.cpp) - Given two balanced Binary Search Trees, task is to merge them into one
+  * [**Dead Nodes**](datastructures/binarysearchtrees/dead_nodes.cpp) - Given a binary search tree, task is to find all the leaf nodes that cannot have any more children, i.e. any of its possible children would either be a repetition or be present elsewhere
+  * [**Flatten a Tree**](datastructures/binarysearchtrees/flatten_bst.cpp) - Given a binary search tree, task is to convert this into a sorted linked list
+  * [**kTh Largest & Smallest**](datastructures/binarysearchtrees/kth_largest_smallest.cpp) - Given a binary search tree, task is to find a certain indexed largest & another certain indexed smallest number in it
+  * [**Largest Binary Search Subtree**](datastructures/binarysearchtrees/largest_subBST.cpp) - Given a binary tree, task is to traverse it's nodes and find out the largest possible binary search tree as a subtree of it
+  * [**Median of Tree**](datastructures/binarysearchtrees/median_tree.cpp) - Given a binary search tree, task is to find the median node in this tree
+  * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
 
 ## Competitive Problems
 
@@ -170,8 +182,10 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Trees
 
 * [**Catalan Numbers**](problems/catalan.cpp) - Given a limit, print all consequetive catalan number upto that point (Number of BST with 'n' nodes)
-* [**Min Swaps Required**](problems/min_swaps_bt2bst.cpp) - Given a complete binary tree in array format, task is to determine how many swaps will be required to convert this into a binary search tree.
+* [**Min Swaps Required**](problems/min_swaps_bt2bst.cpp) - Given a complete binary tree in array format, task is to determine how many swaps will be required to convert this into a binary search tree
 * [**Smallest Distance between Nodes**](problems/smallest_node_distance.cpp) - Given a binary tree and two nodes, task is to find the smallest distance between them
+* [**Overlapping Appointment Timings**](problems/appointment_timings.cpp) - Given times of arrival of guests and their departure, task is to find out which sequences overlap with others
+* [**Least Greatest Right**](problems/least_greatest_right.cpp) - Given a list of numbers, task is to replace each number with a it's least greatest number present to it's right side
 
 ### Heaps
 

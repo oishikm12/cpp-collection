@@ -101,6 +101,12 @@ namespace bstree {
 
             // Finds an element recursively
             bool find(Node<T>*, T);
+
+            // Caller for checking BST between ranges
+            bool properTree(T, T);
+
+            // Checks if every value in left subtree is smaller & vice versa for right
+            bool isBST(Node<T>*, T, T);
     };
 
     template <typename T>
@@ -349,6 +355,30 @@ namespace bstree {
         // left subtree otherwise the data could be present in right subtree
         if (curr->data > data) return find(curr->left, data);
         else return find(curr->right, data);
+    }
+
+    template <typename T>
+    bool BinarySearchTree<T> :: properTree(T minimum, T maximum) {
+        return isBST(ROOT, minimum, maximum);
+    }
+
+    template <typename T>
+    bool BinarySearchTree<T> :: isBST(Node<T> *curr, T minima, T maxima) {
+        // This is an end, true by default
+        if (!root) return true;
+        
+        // If the property of binary tree is true
+        if (root->data > low && root->data < high) {
+            // We recursively check if the same is true for 
+            // further subtree, accordingly changing maximum & minimum
+            bool leftBalanced = isBalanced(root->left, low, root->data);
+            bool rightBalanced = isBalanced(root->right, root->data, high);
+
+            return leftBalanced && rightBalanced;
+        } 
+        
+        // This represents BST property fails
+        return false;
     }
 }
 
