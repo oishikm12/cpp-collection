@@ -5,8 +5,8 @@ using namespace std;
 int main() {
     /**
      * STL Provides us with queue header file in order to create a
-     * queue with all functions prebuilt. Alternatively to headers
-     * like priority_queue can be used to create a queue which is always
+     * queue with all functions prebuilt. Alternatively from this header
+     * priority_queue can be used to create a queue(heap) which is always
      * sorted in nature
      */ 
     cout << "\nThis program generates a queue via STL.\n" << endl;

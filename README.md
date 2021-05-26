@@ -24,30 +24,30 @@ My own collection of useful data structures, algorithms & competitve questions, 
   
 ## Data Structures
 
-* [**Linked List**](datastructures/linked_list.cpp) - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next
-  * [**Linked List STL Implementation**](datastructures/linked_list_stl.cpp) - Linked list using ``list`` header provided by C++
-  * [**Add One**](datastructures/linkedlists/add_one.cpp) - Task is to consider a number represented via linked list and add 1 to it
-  * [**Add Two Numbers**](datastructures/linkedlists/add_two_num.cpp) - Given two linked lists, task is to consider them a number and add them into one
-  * [**Clone Arbitary Pointers**](datastructures/linkedlists/clone_random_ptr.cpp) - Given a linked list with arbitary connection between nodes, task is to clone such a list
-  * [**Delete Greater Right**](datastructures/linkedlists/delete_greater_right.cpp) - Given a linked list, task is to delete every such node which has a greater element to its right
-  * [**Flatten a List**](datastructures/linkedlists/flatten_list.cpp) - Given a 2D linked list consisitong of right & bottom pointers, task is to flatten the list into a single list with only nodes in bottom pointers
-  * [**Group Reverse**](datastructures/linkedlists/group_reverse.cpp) - Given a linked list, we need to reverse every ``k`` subsections of the list
-  * [**nth From End**](datastructures/linkedlists/nth_from_end.cpp) - Given a linked list, task is to print the nth number from the end in a single traversal
-  * [**Palindrome**](datastructures/linkedlists/palindrome.cpp) - Given a linked list, task is to check if the list is palindromic i.e. the list remains the same when read from end
-  * [**Intersection**](datastructures/linkedlists/list_intersection.cpp) - Given two linked lists, task is to check how many elements are common to both
-  * [**Quicksort**](datastructures/linkedlists/list_qsort.cpp) - Given a linked list, task is to sort the list via quicksort
-  * [**Segregate Odd Even**](datastructures/linkedlists/segregate_odd_even.cpp) - Given a linked list, task is to order all the even elements to the front & odd to end
-  * [**Circular Deletion**](datastructures/linkedlists/circular_deletion.cpp) - Given a circular linked list, task is to delete a node in it
-  * [**K-Distance Selection Sort**](datastructures/linkedlists/dll_selections_sort.cpp) - Given a doubly linked list, task is to sort it, when every node is at most ``k`` position away from its sorted position
-  * [**Reversal of DLL**](datastructures/linkedlists/dll_reversal.cpp) - Given a doubly linked list, task is to reverse the entire list
-  * [**Triplets in DLL**](datastructures/linkedlists/dll_triplets.cpp) - Given a doubly linked list and a certain sum, task is to find triplets that equal the sum
-  * [**Non Repeating String in List**](datastructures/linkedlists/non_rep_str.cpp) - Given a string, task is to used a doubly linked list in order to replace the list with non repeating letters in the string
+* [**Singly Linked List**](datastructures/singly_linkedlist.cpp) - A linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next
+  * [**Add One**](datastructures/singlylinkedlists/add_one.cpp) - Task is to consider a number represented via linked list and add 1 to it
+  * [**Add Two Numbers**](datastructures/singlylinkedlists/add_two_num.cpp) - Given two linked lists, task is to consider them a number and add them into one
+  * [**Clone Arbitary Pointers**](datastructures/singlylinkedlists/clone_random_ptr.cpp) - Given a linked list with arbitary connection between nodes, task is to clone such a list
+  * [**Delete Greater Right**](datastructures/singlylinkedlists/delete_greater_right.cpp) - Given a linked list, task is to delete every such node which has a greater element to its right
+  * [**Flatten a List**](datastructures/singlylinkedlists/flatten_list.cpp) - Given a 2D linked list consisitong of right & bottom pointers, task is to flatten the list into a single list with only nodes in bottom pointers
+  * [**Group Reverse**](datastructures/singlylinkedlists/group_reverse.cpp) - Given a linked list, we need to reverse every ``k`` subsections of the list
+  * [**nth From End**](datastructures/singlylinkedlists/nth_from_end.cpp) - Given a linked list, task is to print the nth number from the end in a single traversal
+  * [**Palindrome**](datastructures/singlylinkedlists/palindrome.cpp) - Given a linked list, task is to check if the list is palindromic i.e. the list remains the same when read from end
+  * [**Intersection**](datastructures/singlylinkedlists/list_intersection.cpp) - Given two linked lists, task is to check how many elements are common to both
+  * [**Quicksort**](datastructures/singlylinkedlists/list_qsort.cpp) - Given a linked list, task is to sort the list via quicksort
+  * [**Segregate Odd Even**](datastructures/singlylinkedlists/segregate_odd_even.cpp) - Given a linked list, task is to order all the even elements to the front & odd to end
+* [**Doubly Linked List**](datastructures/doubly_linkedlist.cpp) - It is a type of linked list in which each node apart from storing its data has two links. The first link points to the previous node in the list and the second link points to the next node in the list
+  * [**DLL STL Implementation**](datastructures/doubly_linkedlist_stl.cpp) - Doubly Ended Linked list using ``list`` header provided by C++
+  * [**K-Distance Selection Sort**](datastructures/doublylinkedlists/selection_sort.cpp) - Given a doubly linked list, task is to sort it, when every node is at most ``k`` position away from its sorted position
+  * [**Triplets in DLL**](datastructures/doublylinkedlists/finding_triplets.cpp) - Given a doubly linked list and a certain sum, task is to find triplets that equal the sum
+  * [**Non Repeating String in List**](datastructures/doublylinkedlists/non_rep_str.cpp) - Given a string, task is to used a doubly linked list in order to replace the list with non repeating letters in the string
+* [**Circular Linked List**](datastructures/circular_linkedlist.cpp) - Circular Linked List is a variation of Linked list in which the first element points to the last element and the last element points to the first element
 * [**Stack**](datastructures/stack.cpp) - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out)
   * [**Stack STL Implementation**](datastructures/stack_stl.cpp) - Stack using ``stack`` header provided by C++
 * [**Queue**](datastructures/queue.cpp) - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
   * [**Queue STL Implementation**](datastructures/queue_stl.cpp) - Queue using ``queue`` header provided by C++
 * [**Binary Tree**](datastructures/binary_tree.cpp) - A binary tree is a tree-type non-linear data structure with a maximum of two children for each parent. Every node in a binary tree has a left and right reference along with the data element
-  * [**n-ary Tree STL Implementation**](datastructures/tree_stl.cpp) - A Tree using 2D array / vectors provided by C++
+  * [**n-ary Tree STL Implementation**](datastructures/nary_tree_stl.cpp) - A Tree using 2D array / vectors provided by C++
   * [**Max Tree Diameter**](datastructures/binarytrees/tree_diameter.cpp) - Given a binary tree, task is to find the maximum possible diameter wrapped around the tree irrespective of values
   * [**Sum of Nodes**](datastructures/binarytrees/sum_of_nodes.cpp) - Given a binary tree, task is to replace each node with the sum of its children
   * [**Tree from Array**](datastructures/binarytrees/tree_from_arr.cpp) - Given a preorder or an inorder array, the task is to reconstruct a binary tree from the configuration
@@ -80,6 +80,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Largest Binary Search Subtree**](datastructures/binarysearchtrees/largest_subBST.cpp) - Given a binary tree, task is to traverse it's nodes and find out the largest possible binary search tree as a subtree of it
   * [**Median of Tree**](datastructures/binarysearchtrees/median_tree.cpp) - Given a binary search tree, task is to find the median node in this tree
   * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
+* [**Heap**](datastructures/minmax_heap.cpp) - A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be either a Max Heap wherein the root of the tree is the maximal element, or a Min Heap where the root is minimal
+  * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
 
 ## Competitive Problems
 
@@ -188,6 +190,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Least Greatest Right**](problems/least_greatest_right.cpp) - Given a list of numbers, task is to replace each number with a it's least greatest number present to it's right side
 
 ### Heaps
+
+* [**K Largest in Stream**](problems/k_largest_stream.cpp) - Given a continious stream of characters with a small window of size `k`, task is to maintain the largest `k` numbers in this window at all times
+* [**Running Meadian**](problems/running_median.cpp) - Given a list of numbers, task is to find out the median every time a new number is read
 
 ### Tries
 
