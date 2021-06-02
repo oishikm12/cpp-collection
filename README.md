@@ -66,8 +66,10 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Lowest Common Ancestor**](datastructures/binarytrees/least_common_ancestor.cpp) - Given a binary tree and two nodes, task is to find out the node where they meet
   * [**k-th Ancestor**](datastructures/binarytrees/kth_ancestor.cpp) - Given a binary tree and a node, task is to fins the k-th ancestor of this node
   * [**Isomorphic Tree**](datastructures/binarytrees/isomorphic_tree.cpp) - Given two binary trees, task is to check if the trees are isomorphic, i.e. one can be derived from other by swapping some nodes
-  * [**n-Ary Mirror**](datastructures/binarytrees/nary_mirror.cpp) - Given two n-Ary trees, task is to check if the two trees are mirrors of each other or not
+* [**N-Ary Tree STL**](datastructures/nary_tree_stl.cpp) - An n-ary tree is a special tree which can have multiple children, unlike binary tree which can have only 2 children. This is represented as an adjeceny collection of edges via vectors
+  * [**n-Ary Mirror**](datastructures/narytrees/nary_mirror.cpp) - Given two n-Ary trees, task is to check if the two trees are mirrors of each other or not
 * [**Binary Search Tree**](datastructures/binary_search_tree.cpp) - A binary search tree, also called an ordered or sorted binary tree, is a rooted binary tree whose internal nodes each store a key greater than all the keys in the node's left subtree and less than those in its right subtree
+  * [**Threaded Binary Search Tree**](datastructures/threaded_bst.cpp) - Threaded BST is a simple binary search tree but they have a speciality that null pointers of leaf node of the tree is set to inorder predecessor or inorder successor depending on the node
   * [**Inorder Predecessor & Successor**](datastructures/binarysearchtrees/predecessor_successor.cpp) - Given a binary search tree, and a specific node, task is to find its inorder predecessor and inorder successor
   * [**Lowest Common Ancestor**](datastructures/binarysearchtrees/lca_bst.cpp) - Given a binary search tree and two nodes, task is to find the their lowest common ancestor
   * [**Tree from Preorder**](datastructures/binarysearchtrees/bst_from_preorder.cpp) - Given a preorder traversal of a BST, task is to construct a binary search tree from this
@@ -82,6 +84,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
 * [**Heap**](datastructures/minmax_heap.cpp) - A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be either a Max Heap wherein the root of the tree is the maximal element, or a Min Heap where the root is minimal
   * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
+* [**Hash Map**](datastructures/hash_map.cpp) - A Hash Table / Hash Map is a data structure that implements an associative array abstract data type, a structure that can map keys to values. This allows accessing elements, if their key is known, in constant time
+  * [**Hash Map STL Implementation**](datastructures/hash_map_stl.cpp) - Hash Map using the ``unordered_map`` header provided by C++
+* [**Trie**](datastructures/trie.cpp) - A trie, also called digital tree or prefix tree, is a type of search tree, a tree data structure used for locating specific keys from within a set. In order to do this it stores characters of a string as nodes
 
 ## Competitive Problems
 
@@ -121,7 +126,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 * [**Wave Sorting**](problems/wave_sorting.cpp) - Given a list of numbers, the task is to sort the array in such a way that for any element in the list, it's two adjacent elements would either be less or more than the element.
 * [**Square Root**](problems/square_root.cpp) - Given a number & its precision value, the task is to find it's plausible square root as fast as possible
-* [**Read The Pages**](problems/read_the_pages.cpp) - Given books with pages in sorted order, our task is two divide the books between multiple readers such that the maximum pages each reader has to read is minimum
+* [**Read The Pages**](problems/read_the_pages.cpp) - Given books with pages in sorted order, our task is to divide the books between multiple readers such that the maximum pages each reader has to read is minimum
 * [**Agressive Cows**](problems/aggressive_cows.cpp) - Given positions of different stalls, task is to place n cows into them such that the minimum distance between them is maximum
 * [**Inversion Count**](problems/inversion_count.cpp) - Given an unsorted array, task is to find out how many possible inversions exist, i.e. elements to left are greater & smaller to left
 * [**Taj Mahal Entry**](problems/taj_mahal.cpp) - Given a list of ticket counters to enter Taj Mahal, each value represents number of people currently in waiting. If each counter processes 1 person / minute, the task is to figure out when you will get the ticket if you move to the next counter every minute
@@ -154,13 +159,25 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Square Count**](problems/min_square_count.cpp) - Given a number, task is to find out the count of sequences where sum of squares of those numbers in the sequence would result in the selected number
 * [**Vanya & GCD**](problems/vanya_gcd.cpp) - Given a list of numbers, task is to find the number of increasing subsequences possible with ``GCD = 1``
 * [**Angry Children**](problems/angry_children.cpp) - Given a list of numbers and a number ``k``, task is to select k such numbers such that the absolute difference between them is the minimal
+* [**Longest Common Subsequence**](problems/longest_common_sub.cpp) - Given two strings, the task is to find out the length of the longest sub-sequence that is common to both
+* [**Edit Distance**](problems/edit_distance.cpp) - Given two strings, task is to convert one into another. At each step, one can insert, delete or replace a character, each taking 1 unit of work, we need to find minimal work needed
+* [**Knapsack Problem**](problems/knapsack.cpp) - Given a bag of certain weight capacity, and a number of elments with certain value & weights, task is to find out the maximal value one can place inside the bag without going over its capacity
+* [**Subset Sum**](problems/subset_sum.cpp) - Given a list of numbers, task is to find out if the sum of any subset of those numbers equal a desired sum or not
+* [**Maximum Sum Rectangle**](problems/max_sum_rectangle.cpp) - Given a grid of numbers, task is to find out the maximum possible sum of a rectangle carved out of this grid
+* [**Prime Possiblity**](problems/prime_possiblities.cpp) - Given a bag of certain capacity, and a set of items with specific values and weights, the task is to select items such that the value is maximum, wherein value of each item gets multiplied by a unique prime no. from first 10 primes
+* [**Stock Profits**](problems/stock_profits.cpp) - Given the cost of stocks on a set of days, and ``k`` transactions to make, task is to maximize profit in those two transaction under the condition that only 1 stock can be bought at a time
+* [**Distinct Substrings**](problems/distinct_substrings.cpp) - Given a string, task is to find out how many distinct substrings are possible
+* [**Shortest Unique Substring Length**](problems/shortest_unisub.cpp) - Given two strings, task is to find out the length of the shortest substring in first that cannot be reciprocated in the second
+* [**Number of APs**](problems/number_of_aps.cpp) - Given a list of numbers, task is to find out how many possible Arithmetic Progressions are present in this list
 
 ### Bit Manipulation & Bit Masking
 
-* [**Get Bits**](problems/count_bits.cpp) - Given an integer, the task is to acquire the total no. of bits in it as well as how many bits are set in it
+* [**Manipulate Bits**](problems/manipulate_bits.cpp) - Given an integer, the task is to perform operations such as finding out number of bits, set & unset certain bits, find out if the number is a power of 2, and the XOR of natural numbers till it
 * [**Paying Up**](problems/paying_up.cpp) - Given a set of notes and the total no. we need to pay, our task is to check if the sum of subset of the notes we have, amounts to what we have to pay
 * [**Finding Unique**](problems/finding_unique.cpp) - Given a set of integers, task is to find such nos. which are not repeated, rest all are in pairs
 * [**Tavaas & Sadaas**](problems/tavaas_sadaas.cpp) - Given a nos with only 4 & 7 in it, task is to find its position if all nos preceding it have only 7s & 4s, and the list itself is ascending
+* [**Candies**](problems/candies.cpp) - Given a number of candies, and the same number of students, the task is to find out possible ways to distribute candies among them, given that each of them have preference towards certain candies
+* [**String Dilemma**](problems/string_dilemma.cpp) - Given ``n`` binary strings, task is to find out minimum number of touches required to uniquely identify each string, wherein each touch allows one to compare same index of each string
   
 ### Number Theory
 
