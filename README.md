@@ -8,7 +8,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 * [**Combinatorics**](algorithms/combinatorics.cpp) - Simple implementation of factorial to demonstrate permutation & combination
 * [**Kadane's Algorithm**](algorithms/kadane_subarr.cpp) - It is used to find the maximum sum of possible subarrays of a given set of integers (Circular & Non-Circular Implementation)
-* [**Sieve of Eratostenes**](algorithms/sieve_eratostenes.cpp) - A table of primes is prepared by eliminating multiples of each number as non prime
+* [**Sieve of Eratosthenes **](algorithms/sieve_eratostenes.cpp) - A table of primes is prepared by eliminating multiples of each number as non prime
 * [**Euclid's Algorithm**](algorithms/euclid_hcf_lcm.cpp) - Simple Modulo Operations to find out HCF / GCD & LCM of numbers
 * [**Bubble Sort**](algorithms/bubble_sort.cpp) - It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order
 * [**Insertion Sort**](algorithms/insertion_sort.cpp) - It is a simple sorting algorithm that builds the final sorted array (or list) one item at a time
@@ -16,10 +16,12 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Counting Sort**](algorithms/counting_sort.cpp) - It is an algorithm for sorting a collection of objects according to keys that are small integers; that is, it is an integer sorting algorithm
 * [**Merge Sort**](algorithms/merge_sort.cpp) - It is a Divide & Conquer algorithm for dividing the input array into two halves, calls itself for the two halves, and then sorts them and merges the two sorted halves
 * [**Quick Sort**](algorithms/quick_sort.cpp) - It is a Divide and Conquer algorithm for picking an element as pivot and partitioning the given array around the picked pivot, thereby moving the pivot element into its sorted position
+* [**Heap Sort**](algorithms/heap_sort.cpp) - It involves preparing the list by first turning it into a max heap. The algorithm then repeatedly swaps the first value with the last value, decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap, thereby sorting the list in this process
 * [**Staircase Search**](algorithms/staircase_search.cpp) - Fastest way to search in a 2D matrix by traversing in a diagonal fashiont
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
 * [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
+* [**Extended Euclid's Algorithm**](algorithms/extended_euclid.cpp) - It is an extension to the Euclidean algorithm, and computes, in addition to the GCD of integers `a` and `b`, also the coefficients of Bézout's identity (Linear Diophantine Equation), which are integers x and y such that, ``ax + by = gcd(a, b)``
 * [**Floyd's Cycle**](algorithms/floyds_cycle.cpp) - It is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds. Should the two meet, we confirm presence of cycle in the list
   
 ## Data Structures
@@ -84,20 +86,31 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
 * [**Heap**](datastructures/minmax_heap.cpp) - A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be either a Max Heap wherein the root of the tree is the maximal element, or a Min Heap where the root is minimal
   * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
+  * [**Kth Min & Max**](datastructures/heaps/kth_min_max.cpp) - Given a list of numbers and certain values of `k`, the task is to find `kth` smallest and largest number in that list
+  * [**Heap Merge K Sorted**](datastructures/heaps/heap_merge_ksorted.cpp) - Given k sorted arrays, the task is to merge them into one sorted array using Heap
+  * [**Kth Largest Subarray Sum**](datastructures/heap/kth_largest_subsum.cpp) - Given an array, the task is to construct a Min Heap and find out the Kth largest sum of all possible contigious subarrays of the array
+  * [**Smallest Range in List**](datastructures/heaps/smallest_range.cpp) - Given `k` arrays of sorted elements, task is to find the smallest range which includes at least 1 element from each array
+  * [**Tree is Heap**](datastructures/heaps/tree_is_heap.cpp) - Given a binary tree, the task is to check if this tree is a Max Heap or not
+  * [**BST to Min Heap**](datastructures/heaps/bst_to_heap.cpp) - Given a Binary Search Tree, the task is to convert this tree into a Min Heap with an additional property that every node in its left subtree is smaller than right subtree
 * [**Hash Map**](datastructures/hash_map.cpp) - A Hash Table / Hash Map is a data structure that implements an associative array abstract data type, a structure that can map keys to values. This allows accessing elements, if their key is known, in constant time
   * [**Hash Map STL Implementation**](datastructures/hash_map_stl.cpp) - Hash Map using the ``unordered_map`` header provided by C++
 * [**Trie**](datastructures/trie.cpp) - A trie, also called digital tree or prefix tree, is a type of search tree, a tree data structure used for locating specific keys from within a set. In order to do this it stores characters of a string as nodes
 
 ## Competitive Problems
 
-### Basics (Arrays, Strings & Matrices)
+### Arrays
 
 * [**Smallest Difference**](problems/smallest_difference.cpp) - Given two arrays, task is to find two elements in the arrays such that their difference is the minimal and print that difference
 * [**Longest Peak**](problems/longest_peak.cpp) - Given a list of numbers, task is to find out largest length of a subsequence where numbers are ascending to a point and descending after that
 * [**Minimize the Heights**](problems/minimize_heights.cpp) - Given an array of heights and a integer ``K``, the task is to to modify the height of each tower either by increasing or decreasing them by K only once and then find the difference between max & min heights
+
+### Matrices
+
 * [**Spiral Printing**](problems/spiral_print.cpp) - Given a 2D matrix, the task is to print each element in the matrix in order of their apperance, i.e. for, ``[[1 2 3] [4 5 6] [7 8 9]]``, spiral would be ``[[1 2 3] [6 9 8] [7 4 5]]``
 * [**Image Rotation**](problems/image_rotation.cpp) - Given a 2D matrix, the task is to rotate the given matrix 90 degrees, in O(1) time, i.e. w/o use of any other array
 * [**ZigZag Printing**](problems/zigzag_matrix.cpp) - Given a 2D matrix, the task is to traverse this matrix in diagonal first manner where the direction of printing alternates everytime we reach an edge
+
+### Strings
 
 ### Recursion
 
@@ -182,6 +195,11 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Number Theory
 
 * [**Divisible Subarrays**](problems/divisible_subarrays.cpp) - Given a list of integers, the task is to find how many subarrays exist whose sum is divisble by the number of elements in the list
+* [**Multiplicative Modular Inverse**](problems/multiplicative_modular_inverse.cpp) - Given a certain number and another number to divide it with, the task is to find a certain number which when multiplied with the number to be divided, changes the remainder of the division to 1
+* [**Super Primes**](problems/super_primes.cpp) - Given a range from 1 to `n`, the task is to find out how many such numbers exist which have exactly 2 distinct prime divisors
+* [**Weight Balancing**](problems/weight_balancing.cpp) - Given two weights, the task is to find out how many combination of those weights can be used to attain a third weight
+* [**Divisors of Factorials**](problems/divisors_of_factorial.cpp) - Given a number, the task is to find out the total count of divisors of the factorial of the number
+* [**Good Sets**](problems/good_sets.cpp) - Given a list of numbers, task is to find count of all such subsets of the list such that every number in the set is a divisor of the number next to it
 
 ### Greedy Techniques
 
@@ -210,6 +228,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 * [**K Largest in Stream**](problems/k_largest_stream.cpp) - Given a continious stream of characters with a small window of size `k`, task is to maintain the largest `k` numbers in this window at all times
 * [**Running Meadian**](problems/running_median.cpp) - Given a list of numbers, task is to find out the median every time a new number is read
+* [**Sliding Window Maximum**](problems/sliding_window_maximum.cpp) - Given a list of numbers and a certain window size, which iterates over this list, the task is to find out the maximum at each itertion of the window
+* [**Reorganize Strings**](problems/reorganize_strings.cpp) - Given a string, the task is to reorganize the characters such that no two adjacent characters are the same
+* [**Minimal Sum**](problems/minimal_sum.cpp) - Given digits in the form of array, task is to divide the digits into two combined numbers such that when they are added, the resultant sum is minimal
 
 ### Tries
 
