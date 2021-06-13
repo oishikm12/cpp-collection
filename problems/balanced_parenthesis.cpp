@@ -3,6 +3,7 @@
 using namespace std;
 
 bool checkBalance(string &);
+int lenOfValidSubstring(string &);
 
 int main() {
     /**
@@ -18,7 +19,10 @@ int main() {
     bool isBalanced = checkBalance(equ);
 
     if (isBalanced) cout << "\nThe equation is syntactically valid." << endl;
-    else cout << "\nThe equation is not syntactically valid." << endl;
+    else {
+        int mxVal = lenOfValidSubstring(equ);
+        cout << "\nThe equation is not syntactically valid. The length of largest valid substring in it is " << mxVal << "." << endl;
+    }
 
     cout << endl;
 
@@ -42,4 +46,35 @@ bool checkBalance(string &equ) {
 
     // If control reaches here then equal no. of closing & opening bracs exist
     return elems.empty();
+}
+
+int lenOfValidSubstring(string &equ) {
+    // Counter variable
+    int cnt = 0;
+        
+    // Create a stack and push -1 as initial index to it.
+    stack<int> idx;
+    idx.push(-1);
+    
+    for (int i = 0; i < equ.size(); i += 1) {
+        // If the bracket is an opening one, we simply insert it
+        if (equ[i] == '(') idx.push(i);
+        if (equ[i] == ')') {
+            // Otherwise, we first remove the previous, assuming
+            // it to be an opening bracket
+            if (!idx.empty()) idx.pop();
+            
+            if (!idx.empty()) {
+                // Then we compare to check if the distance between the
+                // last opening and current is greater than previously recorded
+                cnt = max(cnt, i - idx.top());
+            } else {
+                // If the stack is empty it signifies, that no previously
+                // valid substring was found
+                idx.push(i);
+            }
+        }
+    }
+    
+    return cnt;
 }

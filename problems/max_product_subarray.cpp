@@ -30,28 +30,23 @@ int main() {
 }
 
 int getMaxSubProduct(vector<int> &arr) {
-    int maxProd;
-    int maxEndingHere = 1, minEndingHere = 1;
+    // We initialize all variables with the first element of list
+    int maxProd = arr[0];
+    int maxEndingHere = arr[0];
+    int minEndingHere = arr[0];
 
-    for (auto &x : arr) {
-        if (x < 0) {
-            // If the value is less than 0, then a negative subarray becomes
-            // positive and a positive one becomes negative, so we swap
-            int temp = maxEndingHere;
-            maxEndingHere = max(1, minEndingHere * x);
-            minEndingHere = temp * x;
-        } else if (x > 0) {
-            // If the value is positive, we simply multiply it to positive subarr
-            maxEndingHere = maxEndingHere * x;
-            maxEndingHere = min(1, maxEndingHere * x);
-        } else {
-            // A zero value represents end of a subarray
-            maxEndingHere = 1;
-            minEndingHere = 1;
-        }
+    for (int i = 1; i < arr.size(); i += 1) {
+        // If the value is less than 0, then a negative subarray becomes
+        // positive and a positive one becomes negative, so we swap
+        if (arr[i] < 0) swap(maxEndingHere, minEndingHere);
+
+        // We store the greater of the multiplication in maximum
+        // and smaller of them in minimum, simply to swap later
+        maxEndingHere = max(arr[i], maxEndingHere * arr[i]);
+        minEndingHere = min(arr[i], minEndingHere * arr[i]);
 
         // We store the subarray product at each step
-        maxProd = max(maxEndingHere, minEndingHere);
+        maxProd = max(maxProd, maxEndingHere);
     }
 
     return maxProd;

@@ -8,7 +8,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 * [**Combinatorics**](algorithms/combinatorics.cpp) - Simple implementation of factorial to demonstrate permutation & combination
 * [**Kadane's Algorithm**](algorithms/kadane_subarr.cpp) - It is used to find the maximum sum of possible subarrays of a given set of integers (Circular & Non-Circular Implementation)
-* [**Sieve of Eratosthenes **](algorithms/sieve_eratostenes.cpp) - A table of primes is prepared by eliminating multiples of each number as non prime
+* [**Sieve of Eratosthenes**](algorithms/sieve_eratostenes.cpp) - A table of primes is prepared by eliminating multiples of each number as non prime
 * [**Euclid's Algorithm**](algorithms/euclid_hcf_lcm.cpp) - Simple Modulo Operations to find out HCF / GCD & LCM of numbers
 * [**Bubble Sort**](algorithms/bubble_sort.cpp) - It is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order
 * [**Insertion Sort**](algorithms/insertion_sort.cpp) - It is a simple sorting algorithm that builds the final sorted array (or list) one item at a time
@@ -46,8 +46,14 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Circular Linked List**](datastructures/circular_linkedlist.cpp) - Circular Linked List is a variation of Linked list in which the first element points to the last element and the last element points to the first element
 * [**Stack**](datastructures/stack.cpp) - Stack is a linear data structure which follows a particular order in which the operations are performed. The order may be LIFO (Last In First Out) or FILO (First In Last Out)
   * [**Stack STL Implementation**](datastructures/stack_stl.cpp) - Stack using ``stack`` header provided by C++
+  * [**Get Minimum**](datastructures/stacks/getmin_stack.cpp) - Given a set of numbers, the task is to design a stack that can find the minimal element in constant time & space
+  * [**Next Larger**](datastructures/stacks/next_larger.cpp) - Given a set of numbers, the task is to use a stack to find the next greater number to the right for every number
+  * [**Polish Notation**](datastructures/stacks/polish_notation.cpp) - Given any of the polish notations, the task is to convert it to others, via stack
+  * [**Reversal**](datastructures/stacks/reversal.cpp) - Given a stack, the task is to reverse this stack without using any other data structure
+  * [**Sort a Stack**](datastructures/stacks/stack_sort.cpp) - Given a stack, the task is to sort the contents of this stack without other data structures
 * [**Queue**](datastructures/queue.cpp) - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
   * [**Queue STL Implementation**](datastructures/queue_stl.cpp) - Queue using ``queue`` header provided by C++
+  * [**Queue Permutation**](datastructures/queues/queue_permutation.cpp) - Given two arrays, each representing two states of queue, the task is to check if one can be converted to another should a stack be given
 * [**Binary Tree**](datastructures/binary_tree.cpp) - A binary tree is a tree-type non-linear data structure with a maximum of two children for each parent. Every node in a binary tree has a left and right reference along with the data element
   * [**n-ary Tree STL Implementation**](datastructures/nary_tree_stl.cpp) - A Tree using 2D array / vectors provided by C++
   * [**Max Tree Diameter**](datastructures/binarytrees/tree_diameter.cpp) - Given a binary tree, task is to find the maximum possible diameter wrapped around the tree irrespective of values
@@ -88,7 +94,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
   * [**Kth Min & Max**](datastructures/heaps/kth_min_max.cpp) - Given a list of numbers and certain values of `k`, the task is to find `kth` smallest and largest number in that list
   * [**Heap Merge K Sorted**](datastructures/heaps/heap_merge_ksorted.cpp) - Given k sorted arrays, the task is to merge them into one sorted array using Heap
-  * [**Kth Largest Subarray Sum**](datastructures/heap/kth_largest_subsum.cpp) - Given an array, the task is to construct a Min Heap and find out the Kth largest sum of all possible contigious subarrays of the array
+  * [**Kth Largest Subarray Sum**](datastructures/heaps/kth_largest_subsum.cpp) - Given an array, the task is to construct a Min Heap and find out the Kth largest sum of all possible contigious subarrays of the array
   * [**Smallest Range in List**](datastructures/heaps/smallest_range.cpp) - Given `k` arrays of sorted elements, task is to find the smallest range which includes at least 1 element from each array
   * [**Tree is Heap**](datastructures/heaps/tree_is_heap.cpp) - Given a binary tree, the task is to check if this tree is a Max Heap or not
   * [**BST to Min Heap**](datastructures/heaps/bst_to_heap.cpp) - Given a Binary Search Tree, the task is to convert this tree into a Min Heap with an additional property that every node in its left subtree is smaller than right subtree
@@ -103,12 +109,21 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Smallest Difference**](problems/smallest_difference.cpp) - Given two arrays, task is to find two elements in the arrays such that their difference is the minimal and print that difference
 * [**Longest Peak**](problems/longest_peak.cpp) - Given a list of numbers, task is to find out largest length of a subsequence where numbers are ascending to a point and descending after that
 * [**Minimize the Heights**](problems/minimize_heights.cpp) - Given an array of heights and a integer ``K``, the task is to to modify the height of each tower either by increasing or decreasing them by K only once and then find the difference between max & min heights
+* [**Minimal Jumps**](problems/minimal_jumps.cpp) - Given a list of numbers indicating how many steps we can jump ahead at most, the task is to find out the minimal number of jumps required to travel from first to last index
+* [**Duplicates**](problems/duped_number.cpp) - Given a list of numbers, with exactly one number repeated multiple times, the task is to find this number provided, every number is in the sequence `[1 .. n]`
+* [**Next Permutation**](problems/next_permutation.cpp) - Given a certain number in the form an array, the task is to rearrange the numbers into the lexicographically next greater permutation of numbers, or if not possible, rearrange to ascending order
+* [**Zero Sum Subarray**](problems/zero_sum_subarr.cpp) - Given a list of numbers, the task is to find out if there exists a subarray whose sum is equivalent to 0
+* [**Smallest Greater Subarray Length**](problems/subarray_greater_sum.cpp) - Given a list of numbers and a certain sum, the task is to find the minimum subarray length, whose sum is greater than our given sum
+* [**Opertations For Palindromic Array**](problems/operations_palindrome.cpp) - Given a list of numbers, the task is to calulate the minimum number of operations required to make the array palindromic, given each operation consisits of combining two numbers into their sum
+* [**Median of Two Sorted Array**](problems/sorted_twice_median.cpp) - Given two sorted arrays of same length, the task is to find the median of combined array
 
 ### Matrices
 
 * [**Spiral Printing**](problems/spiral_print.cpp) - Given a 2D matrix, the task is to print each element in the matrix in order of their apperance, i.e. for, ``[[1 2 3] [4 5 6] [7 8 9]]``, spiral would be ``[[1 2 3] [6 9 8] [7 4 5]]``
 * [**Image Rotation**](problems/image_rotation.cpp) - Given a 2D matrix, the task is to rotate the given matrix 90 degrees, in O(1) time, i.e. w/o use of any other array
 * [**ZigZag Printing**](problems/zigzag_matrix.cpp) - Given a 2D matrix, the task is to traverse this matrix in diagonal first manner where the direction of printing alternates everytime we reach an edge
+* [**Sorted Median**](problems/sorted_median.cpp) - Given a row-wise sorted 2D matrix, the task is to find the median of this matrix, given rows & columns are always odd
+* [**Largest Binary Rectangle**](problems/largest_binary_rectangle.cpp) - Given a binary matrix, the task is to find the area of largest rectangle covered bby `1`s
 
 ### Strings
 
@@ -200,6 +215,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Weight Balancing**](problems/weight_balancing.cpp) - Given two weights, the task is to find out how many combination of those weights can be used to attain a third weight
 * [**Divisors of Factorials**](problems/divisors_of_factorial.cpp) - Given a number, the task is to find out the total count of divisors of the factorial of the number
 * [**Good Sets**](problems/good_sets.cpp) - Given a list of numbers, task is to find count of all such subsets of the list such that every number in the set is a divisor of the number next to it
+* [**Card Game**](problems/card_game.cpp) - Given a list of cards having certain value, and a certain number, the task is to find count of all possible subarrays whose products are divisible by this number
+* [**Strange Order**](problems/strange_order.cpp) - Given a number, the task is to print numbers from n to 1, in a specific order, wherein `n` should be followed by numbers whose `gcd(n, x) != 1`, and so on for next largest number till we reach 1
 
 ### Greedy Techniques
 
@@ -210,11 +227,13 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Balanced Parenthesis**](problems/balanced_parenthesis.cpp) - Given a mathematical equation, the task is to check if the number of opening parenthesis matches the number of closing parenthesis in order
 * [**Stock Span**](problems/stock_span.cpp) - Given stock values over multiple days, the task is to find for every given day, the no. of days one can go back such that the value of stock was less than that of current day
 * [**Area under Histogram**](problems/area_histogram.cpp) - Given a histogram with random heights, the task is to find the largest possible rectangle that can be formed traversing across multiple histogram bars, limited by the bar with minimum height
+* [**Celebrity Problem**](problems/celebrity_problem.cpp) - Given a matrix representing how many other people a person knows in a party, the task is to spot a celebrity who does not recognize anyone else, but everyone else knows that person
 
 ### Queue
 
 * [**Max in Window**](problems/max_window.cpp) - Given a set of numbers and a given sub array size, the task is to find the maximum element in all possible contigious sub arrays of the given size
 * [**Max Length Unique Word**](problems/max_len_words.cpp) - Given a string without a delimiter, the task is to find out the max length substring that only has unique letters in it
+* [**Rotten Oranges**](problems/rotten_oranges.cpp) - Given a grid where each element represents wether it is empty, filled with fresh or filled with rotten oranges, the task is to find out the time before all oranges are rotten, if rot spreads in all 4 grid directions in unit time
 
 ### Trees
 
