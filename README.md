@@ -17,12 +17,20 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Merge Sort**](algorithms/merge_sort.cpp) - It is a Divide & Conquer algorithm for dividing the input array into two halves, calls itself for the two halves, and then sorts them and merges the two sorted halves
 * [**Quick Sort**](algorithms/quick_sort.cpp) - It is a Divide and Conquer algorithm for picking an element as pivot and partitioning the given array around the picked pivot, thereby moving the pivot element into its sorted position
 * [**Heap Sort**](algorithms/heap_sort.cpp) - It involves preparing the list by first turning it into a max heap. The algorithm then repeatedly swaps the first value with the last value, decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap, thereby sorting the list in this process
+* [**Topological Sort**](algorithms/topological_sort.cpp) - Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering of vertices such that for every directed edge u v, vertex u comes before v in the ordering. While done via DFS, Kahn's algorithm allows for a BFS approach
 * [**Staircase Search**](algorithms/staircase_search.cpp) - Fastest way to search in a 2D matrix by traversing in a diagonal fashiont
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
 * [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
 * [**Extended Euclid's Algorithm**](algorithms/extended_euclid.cpp) - It is an extension to the Euclidean algorithm, and computes, in addition to the GCD of integers `a` and `b`, also the coefficients of Bézout's identity (Linear Diophantine Equation), which are integers x and y such that, ``ax + by = gcd(a, b)``
 * [**Floyd's Cycle**](algorithms/floyds_cycle.cpp) - It is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds. Should the two meet, we confirm presence of cycle in the list
+* [**Dijkstra's Shortest Path**](algorithms/dijkstra_shortest_path.cpp) - It is an algorithm for finding the shortest paths between nodes in a weighted positive graph. It does this by repeatedly comparing cost to reach neighbouring nodes, with its previously recorded costs
+* [**Bellman Ford's Shortest Path**](algorithms/bellman_ford_shortest_path.cpp) - It allows us to determine the shortest distance between two nodes in a weighted directed graph, however unlike Dijkstra's algorithm, it is able to detect negative weights
+* [**Flood Fill**](algorithms/flood_fill.cpp) - This allows us to selectively change a certain element in a coloured graph. It is used to determine a bounded area connected to a given node in a multi-dimensional array.
+* [**Floyd Warshall Algorithm**](algorithms/floyd_warshall.cpp) - This algorithm allows us to find shortest distances between every pair of vertices in a given edge weighted directed Graph.
+* [**Kosaraju's Algorithm**](algorithms/kosaraju.cpp) - This algorithm allows us to check wether a given directed graph is strongly connected, i.e. every vertex is reachable from every other
+* [**Prim's Algorithm**](algorithms/prim_mst.cpp) - It finds the subset of edges that includes every vertex of the graph such that the sum of the weights of the edges can be minimized. It starts with the single node and explore all the adjacent nodes with all the connecting edges at every step
+* [**Kruskal's Algorithm**](algorithms/kruskal_mst.cpp) - It finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree, much like Prim
   
 ## Data Structures
 
@@ -54,6 +62,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Queue**](datastructures/queue.cpp) - A Queue is a linear structure which follows a particular order in which the operations are performed. The order is FIFO (First In First Out)
   * [**Queue STL Implementation**](datastructures/queue_stl.cpp) - Queue using ``queue`` header provided by C++
   * [**Queue Permutation**](datastructures/queues/queue_permutation.cpp) - Given two arrays, each representing two states of queue, the task is to check if one can be converted to another should a stack be given
+  * [**Reversal**](datastructures/queues/reversal.cpp) - Given a queue, the task is to reverse this stack without using any other data structure
 * [**Binary Tree**](datastructures/binary_tree.cpp) - A binary tree is a tree-type non-linear data structure with a maximum of two children for each parent. Every node in a binary tree has a left and right reference along with the data element
   * [**n-ary Tree STL Implementation**](datastructures/nary_tree_stl.cpp) - A Tree using 2D array / vectors provided by C++
   * [**Max Tree Diameter**](datastructures/binarytrees/tree_diameter.cpp) - Given a binary tree, task is to find the maximum possible diameter wrapped around the tree irrespective of values
@@ -101,6 +110,10 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Hash Map**](datastructures/hash_map.cpp) - A Hash Table / Hash Map is a data structure that implements an associative array abstract data type, a structure that can map keys to values. This allows accessing elements, if their key is known, in constant time
   * [**Hash Map STL Implementation**](datastructures/hash_map_stl.cpp) - Hash Map using the ``unordered_map`` header provided by C++
 * [**Trie**](datastructures/trie.cpp) - A trie, also called digital tree or prefix tree, is a type of search tree, a tree data structure used for locating specific keys from within a set. In order to do this it stores characters of a string as nodes
+* [**Graph**](datastructures/graph.cpp) - A graph is a pictorial representation of a set of objects where some pairs of objects are connected by links. The interconnected objects are represented by points termed as vertices, and the links that connect the vertices are called edges
+  * [**Shortest Distance**](datastructures/graphs/shortest_distance.cpp) - Given an interconnected graph, and a starting value, the task is to find out the shortest path between this node and all other nodes
+  * [**Is Cyclic**](datastructures/graphs/cyclic.cpp) - Given a graph, the task is to find out if it contains a cycle or not
+  * [**Biparted Graph**](datastructures/graphs/biparted.cpp) - Given a graph, the task is to find out if this graph is biparted, i.e. to check if all of its nodes can be divided into two parts, where each node has edges only to opposite groups and not within its own group
 
 ## Competitive Problems
 
@@ -140,6 +153,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Rat In a Maze**](problems/rat_in_maze.cpp) - Given a grid, filled with obstacles, task is to find all possible paths from one end of diagonal to other
 * [**Sudoku**](problems/sudoku.cpp) - Given a x \* x board, task is to place a number in each block such that the number does not repeat in the entire row, or column, and also does not repeat if a section of 3 \* 3 is taken from the board
 * [**Crosswords**](problems/crossword.cpp) - Given a board of arbritary size consisting of blank spaces and some letters, the task is to place a given set of words in the empty spaces
+* [**Palindromic Partitions**](problems/palindromic_partitions.cpp) - Given a string, the task is to partition it such that every substring of the partition is a palindrome, and as such find all possible partitions
 
 ### Language Tools & STL
 
@@ -254,6 +268,10 @@ My own collection of useful data structures, algorithms & competitve questions, 
 ### Tries
 
 ### Graphs
+
+* [**Flight and Tours**](problems/catch_the_plane.cpp) - Given a list of places and the cost to travel between each via bus & plane, the task is to find the minimal cost needed to reach from the source to destination, given the passenger can take at most one flight in between
+* [**Travelling Salesman**](problems/travelling_salesman.cpp) - Given a grid representing cost from travelling from one city to another, the task is to find the minimal cost of travelling to all cities and back to start
+* [**Holiday Accomodations**](problems/holiday_accomodations.cpp) - Given a graph representing various people in various cities and the distance between cities, the task is to shuffle them such that each person travels the maximum distance while traversing through the shortest path to get there
 
 ### Game Theory
 
