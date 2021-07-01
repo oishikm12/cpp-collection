@@ -22,7 +22,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
 * [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
+* [**Modular Exponentiation**](algorithms/modular_exponentiation.cpp) - Finds out a power of a number, when the exponent is large, i.e. the answer is beyond integer limits; via modulus
 * [**Extended Euclid's Algorithm**](algorithms/extended_euclid.cpp) - It is an extension to the Euclidean algorithm, and computes, in addition to the GCD of integers `a` and `b`, also the coefficients of Bézout's identity (Linear Diophantine Equation), which are integers x and y such that, ``ax + by = gcd(a, b)``
+* [**Euler's Totient**](algorithms/euler_totient.cpp) - It allows us to calculate `phi(n)` for a given number, i.e. the number of elements co-prime to that number appearing before it
 * [**Floyd's Cycle**](algorithms/floyds_cycle.cpp) - It is a pointer algorithm that uses only two pointers, moving through the sequence at different speeds. Should the two meet, we confirm presence of cycle in the list
 * [**Dijkstra's Shortest Path**](algorithms/dijkstra_shortest_path.cpp) - It is an algorithm for finding the shortest paths between nodes in a weighted positive graph. It does this by repeatedly comparing cost to reach neighbouring nodes, with its previously recorded costs
 * [**Bellman Ford's Shortest Path**](algorithms/bellman_ford_shortest_path.cpp) - It allows us to determine the shortest distance between two nodes in a weighted directed graph, however unlike Dijkstra's algorithm, it is able to detect negative weights
@@ -154,6 +156,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Sudoku**](problems/sudoku.cpp) - Given a x \* x board, task is to place a number in each block such that the number does not repeat in the entire row, or column, and also does not repeat if a section of 3 \* 3 is taken from the board
 * [**Crosswords**](problems/crossword.cpp) - Given a board of arbritary size consisting of blank spaces and some letters, the task is to place a given set of words in the empty spaces
 * [**Palindromic Partitions**](problems/palindromic_partitions.cpp) - Given a string, the task is to partition it such that every substring of the partition is a palindrome, and as such find all possible partitions
+* [**k-Partition**](problems/k_partitions.cpp) - Given an array of numbers and a number `k`, the task is to find out if it is possible to divide this array into `k` subsets such that sum of each subset is the same
 
 ### Language Tools & STL
 
@@ -231,6 +234,11 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Good Sets**](problems/good_sets.cpp) - Given a list of numbers, task is to find count of all such subsets of the list such that every number in the set is a divisor of the number next to it
 * [**Card Game**](problems/card_game.cpp) - Given a list of cards having certain value, and a certain number, the task is to find count of all possible subarrays whose products are divisible by this number
 * [**Strange Order**](problems/strange_order.cpp) - Given a number, the task is to print numbers from n to 1, in a specific order, wherein `n` should be followed by numbers whose `gcd(n, x) != 1`, and so on for next largest number till we reach 1
+* [**Sum of LCM**](problems/sum_of_lcm.cpp) - Given a number, the task is to find the sum of LCM of all numbers till that numbers, with the number itself, i.e. `lcm(1, n) + lcm(2, n) + ... + lcm(n, n)`
+* [**Segmented Sieve**](problems/segmented_sieve.cpp) - Given a range which can go upto 10^10, the task is to print all the primes in this range
+* [**Fibonacci Sum**](problems/fibonacci_sum.cpp) - Given two large ranges, the task is to find the sum of fibonacci numbers lying within this range via matrix exponentiaition
+* [**Boring Factorials**](problems/boring_factorials.cpp) - Given a number the task is to find the modulo of factorial of that number with some prime
+* [**Extreme GCD**](problems/extreme_gcd.cpp) - Given a number the task is to find sum of GCD of all numbers from `1 ... N`, with `i + 1 ... N`
 
 ### Greedy Techniques
 
