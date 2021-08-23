@@ -101,6 +101,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Largest Binary Search Subtree**](datastructures/binarysearchtrees/largest_subBST.cpp) - Given a binary tree, task is to traverse it's nodes and find out the largest possible binary search tree as a subtree of it
   * [**Median of Tree**](datastructures/binarysearchtrees/median_tree.cpp) - Given a binary search tree, task is to find the median node in this tree
   * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
+* [**Segment Tree**](datastructures/segment_tree.cpp) - A segment tree, also known as a statistic tree, is a tree data structure used for storing information about intervals, or segments. It allows querying which of the stored segments contain a given point
+  * [**Lazy Propagation Segment Tree**](datastructures/lazy_segtree.cpp) - A lazy propagated segment tree, maintains a seperate tree tracking changes not yet implemented. These changes are reflected only on queries involving those nodes
 * [**Heap**](datastructures/minmax_heap.cpp) - A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be either a Max Heap wherein the root of the tree is the maximal element, or a Min Heap where the root is minimal
   * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
   * [**Kth Min & Max**](datastructures/heaps/kth_min_max.cpp) - Given a list of numbers and certain values of `k`, the task is to find `kth` smallest and largest number in that list
@@ -206,7 +208,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Angry Children**](problems/angry_children.cpp) - Given a list of numbers and a number ``k``, task is to select k such numbers such that the absolute difference between them is the minimal
 * [**Longest Common Subsequence**](problems/longest_common_sub.cpp) - Given two strings, the task is to find out the length of the longest sub-sequence that is common to both
 * [**Edit Distance**](problems/edit_distance.cpp) - Given two strings, task is to convert one into another. At each step, one can insert, delete or replace a character, each taking 1 unit of work, we need to find minimal work needed
-* [**Knapsack Problem**](problems/knapsack.cpp) - Given a bag of certain weight capacity, and a number of elments with certain value & weights, task is to find out the maximal value one can place inside the bag without going over its capacity
+* [**0 / 1 Knapsack Problem**](problems/knapsack.cpp) - Given a bag of certain weight capacity, and a number of elments with certain value & weights, task is to find out the maximal value one can place inside the bag without going over its capacity
 * [**Subset Sum**](problems/subset_sum.cpp) - Given a list of numbers, task is to find out if the sum of any subset of those numbers equal a desired sum or not
 * [**Maximum Sum Rectangle**](problems/max_sum_rectangle.cpp) - Given a grid of numbers, task is to find out the maximum possible sum of a rectangle carved out of this grid
 * [**Prime Possiblity**](problems/prime_possiblities.cpp) - Given a bag of certain capacity, and a set of items with specific values and weights, the task is to select items such that the value is maximum, wherein value of each item gets multiplied by a unique prime no. from first 10 primes
@@ -239,10 +241,21 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Fibonacci Sum**](problems/fibonacci_sum.cpp) - Given two large ranges, the task is to find the sum of fibonacci numbers lying within this range via matrix exponentiaition
 * [**Boring Factorials**](problems/boring_factorials.cpp) - Given a number the task is to find the modulo of factorial of that number with some prime
 * [**Extreme GCD**](problems/extreme_gcd.cpp) - Given a number the task is to find sum of GCD of all numbers from `1 ... N`, with `i + 1 ... N`
+* [**kth Permutation**](problems/kth_permutation.cpp) - Given a number, the task is to consider all natural numbers upto that number and find the `k th` permutation of those numbers in lexographical order
 
 ### Greedy Techniques
 
-### Range Based Queries
+* [**Activity Selection**](problems/activity_selection.cpp) - Given starting and ending duration of activities, the task is to find out how many activities can be performed in one day
+* [**Fractional Knapsack**](problems/fractional_knapsack.cpp) - Given weights and values of `n` items, we need to put these items in a knapsack of capacity W to get the maximum total value in the knapsack, however we are allowed to break the items.
+* [**Jewellery Theft**](problems/jewellery_theft.cpp) - Given `n` jewellery pieces each with certain value & weight, the task is to store these jewelleries in `k` bags which can hold a single jewellery of certain weight, such that profit is maximized
+* [**MiniMax Discussion**](problems/minimax_discussion.cpp) - Given a list of numbers and a number `k`, the task is to find the minimal difference between the largest and smallest number in the list, after adding or subtracting `k` from each number
+
+### Range Based Queries (Segment & Fenwick Trees)
+
+[**Max Subarray Sum Range**](problems/max_subarr_range.cpp) - Given a list of numbers and multiple set of ranges, the task is to find out the maximum subarray sum in all of those ranges
+[**Sum of Squares**](problems/sum_of_squares.cpp) - Given a list of numbers and multiple ranges, wherein we have to either update the values in ranges by something / to something, or we have to print sum of squares of numbers in that range
+[**Binary Query**](problems/binary_query.cpp) - Given a binary literal, the task is to modify a single bit or print the value of certain subsection of the literal
+[**Sheldon & Trains**](problems/sheldon_and_trains.cpp) - Given a list of stations, the task is to find the sum of minimum tickets required to travel from each station to every other station after it
 
 ### Stack
 
