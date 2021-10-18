@@ -11,7 +11,7 @@ int main() {
      * the half where the element is likely to be, this process is then 
      * repeated till we either find it or the list can't be partitioned 
      */ 
-    cout << "\nThis program seacrhes for a certain element via binary search.\n" << endl;
+    cout << "\nThis program searches for a certain element via binary search.\n" << endl;
     int len;
     cout << "Enter length of array : ";
     cin >> len;

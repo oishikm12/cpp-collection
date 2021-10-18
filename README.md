@@ -21,6 +21,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Staircase Search**](algorithms/staircase_search.cpp) - Fastest way to search in a 2D matrix by traversing in a diagonal fashiont
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
 * [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
+* [**A\* Search**](algorithms/a_star_search.cpp) - A\* is a graph traversal and path search algorithm, which precomputes the cost to reach the destination via heuristic function, if a certain path is taken. This way an optimal result is always guaranteed
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
 * [**Modular Exponentiation**](algorithms/modular_exponentiation.cpp) - Finds out a power of a number, when the exponent is large, i.e. the answer is beyond integer limits; via modulus
 * [**Extended Euclid's Algorithm**](algorithms/extended_euclid.cpp) - It is an extension to the Euclidean algorithm, and computes, in addition to the GCD of integers `a` and `b`, also the coefficients of Bézout's identity (Linear Diophantine Equation), which are integers x and y such that, ``ax + by = gcd(a, b)``
@@ -101,8 +102,11 @@ My own collection of useful data structures, algorithms & competitve questions, 
   * [**Largest Binary Search Subtree**](datastructures/binarysearchtrees/largest_subBST.cpp) - Given a binary tree, task is to traverse it's nodes and find out the largest possible binary search tree as a subtree of it
   * [**Median of Tree**](datastructures/binarysearchtrees/median_tree.cpp) - Given a binary search tree, task is to find the median node in this tree
   * [**Nodes in a Range**](datastructures/binarysearchtrees/nodes_in_range.cpp) - Given a binary search tree, task is to find out the number of nodes lying between a given range(inclusive)
+* [**AVL Tree**](datastructures/avl_tree.cpp) - An AVL tree is a self-balancing Binary Search Tree where the difference between heights of left and right subtrees is not more than one for all nodes
+* [**Red Black Tree**](datastructures/red_black_tree.cpp) - A red-black tree is a kind of self-balancing binary search tree where each node has an extra bit, and that bit is often interpreted as the colour (red or black). Operations in RB Tree always occur in logarithmic time
 * [**Segment Tree**](datastructures/segment_tree.cpp) - A segment tree, also known as a statistic tree, is a tree data structure used for storing information about intervals, or segments. It allows querying which of the stored segments contain a given point
   * [**Lazy Propagation Segment Tree**](datastructures/lazy_segtree.cpp) - A lazy propagated segment tree, maintains a seperate tree tracking changes not yet implemented. These changes are reflected only on queries involving those nodes
+* [**Fenwick Tree**](datastructures/fenwick_tree.cpp) - A Fenwick tree or binary indexed tree is a data structure that can efficiently update elements and calculate prefix sums in a table of numbers
 * [**Heap**](datastructures/minmax_heap.cpp) - A Heap is a special Tree-based data structure in which the tree is a complete binary tree. Generally, Heaps can be either a Max Heap wherein the root of the tree is the maximal element, or a Min Heap where the root is minimal
   * [**Heap STL Implementation**](datastructures/minmax_heap_stl.cpp) - Min & Max Heap using the ``priority_queue`` in ``queue`` header provided by C++
   * [**Kth Min & Max**](datastructures/heaps/kth_min_max.cpp) - Given a list of numbers and certain values of `k`, the task is to find `kth` smallest and largest number in that list
@@ -179,6 +183,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Taj Mahal Entry**](problems/taj_mahal.cpp) - Given a list of ticket counters to enter Taj Mahal, each value represents number of people currently in waiting. If each counter processes 1 person / minute, the task is to figure out when you will get the ticket if you move to the next counter every minute
 * [**Sorting the Skills**](problems/sorting_the_skills.cpp) - Given an array representing skill points, the task is to check if it can be sorted when we can only swap adjacent skill points if they differ by 1
 * [**Collecting the Balls**](problems/collecting_the_balls.cpp) - Given a certain number of balls, two players will be taking turns in collecting balls, the first player takes an arbitary number each turn, and the other will take 1/10 of the rest. Task is to choose such an arbitary number that the first player has more than half the no. of balls by the end
+* [**8 Puzzle**](problems/8_puzzle.cpp) - Given a `3 * 3` grid, representing a state of a board with one empty cell, the task is to change the state into another with the least number of swaps
 
 ### Modulo Arithmetic
 
@@ -252,10 +257,12 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 ### Range Based Queries (Segment & Fenwick Trees)
 
-[**Max Subarray Sum Range**](problems/max_subarr_range.cpp) - Given a list of numbers and multiple set of ranges, the task is to find out the maximum subarray sum in all of those ranges
-[**Sum of Squares**](problems/sum_of_squares.cpp) - Given a list of numbers and multiple ranges, wherein we have to either update the values in ranges by something / to something, or we have to print sum of squares of numbers in that range
-[**Binary Query**](problems/binary_query.cpp) - Given a binary literal, the task is to modify a single bit or print the value of certain subsection of the literal
-[**Sheldon & Trains**](problems/sheldon_and_trains.cpp) - Given a list of stations, the task is to find the sum of minimum tickets required to travel from each station to every other station after it
+* [**Max Subarray Sum Range**](problems/max_subarr_range.cpp) - Given a list of numbers and multiple set of ranges, the task is to find out the maximum subarray sum in all of those ranges
+* [**Sum of Squares**](problems/sum_of_squares.cpp) - Given a list of numbers and multiple ranges, wherein we have to either update the values in ranges by something / to something, or we have to print sum of squares of numbers in that range
+* [**Binary Query**](problems/binary_query.cpp) - Given a binary literal, the task is to modify a single bit or print the value of certain subsection of the literal
+* [**Sheldon & Trains**](problems/sheldon_and_trains.cpp) - Given a list of stations, the task is to find the sum of minimum tickets required to travel from each station to every other station after it
+* [**Distinct Queries**](problems/distinct_queries.cpp) - Given a sequence of numbers and a number of queries. A query is a pair of ranges, and for each query, the taks is to return the number of distinct elements in the subsequence
+* [**Increasing Subsequences**](problems/increasing_subsequences.cpp) - Given a list of numbers, the task is to find out the number of increasing subsequences that are exactly a given size long
 
 ### Stack
 

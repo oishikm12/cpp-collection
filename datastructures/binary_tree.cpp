@@ -17,7 +17,6 @@ class Trunk {
         string str;
 
         Trunk(Trunk *p, string s) : prev(p), str(s) {};
-        ~Trunk() { delete prev, prev = NULL; }
 };
 
 template <typename T>
@@ -387,12 +386,12 @@ void BinaryTree<T> :: traverseLevels(Node<T> *curr, int level) {
 
 template <typename T>
 void BinaryTree<T> :: print() {
-    // Calling the main function passing pointer to previos & direction
-    printTree(ROOT, NULL, false);
+    // Calling the main function passing pointer to previous & direction
+    prettyPrintTree(ROOT, NULL, false);
 }
 
 template <typename T>
-void BinaryTree<T> :: prettyPrintTree(Node<T> *root, Trunk *prev, bool isLeft) {
+void BinaryTree<T> :: prettyPrintTree(Node<T> *root, Trunk *prev, bool isTop) {
     // This node does not exist, no need to print
     if (root == NULL) return;
  
@@ -401,17 +400,17 @@ void BinaryTree<T> :: prettyPrintTree(Node<T> *root, Trunk *prev, bool isLeft) {
     Trunk *trunk = new Trunk(prev, prevStr);
  
     // Inorder Traversal of nodes, so that root comes in middle
-    printTree(root->right, trunk, true);
+    prettyPrintTree(root->right, trunk, true);
  
     if (!prev) {
         // Represents a node at this level
         trunk->str = "---";
-    } else if (isLeft) {
-        // Left node is present to top in horizontal view
+    } else if (isTop) {
+        // Right node is present to top in horizontal view
         trunk->str = ".---";
         prevStr = "   |";
     } else {
-        // Right node is present in bottom in horizontal view
+        // Left node is present in bottom in horizontal view
         trunk->str = "`---";
         prev->str = prevStr;
     }
@@ -428,14 +427,14 @@ void BinaryTree<T> :: prettyPrintTree(Node<T> *root, Trunk *prev, bool isLeft) {
     }
 
     for (int i = nd.size() - 1; i >= 0; i -= 1) cout << nd[i];
-    cout << root->data << endl;
+    cout << "(" << root->data << ")" << endl;
  
     if (prev) prev->str = prevStr;
 
     // End of current data, and move to right side
     trunk->str = "   |";
  
-    printTree(root->left, trunk, false);
+    prettyPrintTree(root->left, trunk, false);
 
     delete trunk;
 }
