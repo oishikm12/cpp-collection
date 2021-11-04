@@ -32,6 +32,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Flood Fill**](algorithms/flood_fill.cpp) - This allows us to selectively change a certain element in a coloured graph. It is used to determine a bounded area connected to a given node in a multi-dimensional array.
 * [**Floyd Warshall Algorithm**](algorithms/floyd_warshall.cpp) - This algorithm allows us to find shortest distances between every pair of vertices in a given edge weighted directed Graph.
 * [**Kosaraju's Algorithm**](algorithms/kosaraju.cpp) - This algorithm allows us to check wether a given directed graph is strongly connected, i.e. every vertex is reachable from every other
+* [**Tarjan's Algorithm**](algorithms/tarjan.cpp) - Unlike Kosaraju which requires two DFS traversals, strongly connected components can be found out in a single traversal, if we maintain two arrays, one to track discovery time & one to track subtree roots of possible SCC
 * [**Prim's Algorithm**](algorithms/prim_mst.cpp) - It finds the subset of edges that includes every vertex of the graph such that the sum of the weights of the edges can be minimized. It starts with the single node and explore all the adjacent nodes with all the connecting edges at every step
 * [**Kruskal's Algorithm**](algorithms/kruskal_mst.cpp) - It finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree, much like Prim
   
@@ -300,6 +301,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Flight and Tours**](problems/catch_the_plane.cpp) - Given a list of places and the cost to travel between each via bus & plane, the task is to find the minimal cost needed to reach from the source to destination, given the passenger can take at most one flight in between
 * [**Travelling Salesman**](problems/travelling_salesman.cpp) - Given a grid representing cost from travelling from one city to another, the task is to find the minimal cost of travelling to all cities and back to start
 * [**Holiday Accomodations**](problems/holiday_accomodations.cpp) - Given a graph representing various people in various cities and the distance between cities, the task is to shuffle them such that each person travels the maximum distance while traversing through the shortest path to get there
+* [**3 Cycles**](problems/three_cycles.cpp) - Given two list where same indices are connected similar to a graph, the task is to find the count of 3 unique points `x, y, z` such that `x, y`, `y, z` & `z, x` are all connected, present in the graph
+* [**Permutation Swaps**](problems/permutation_swaps.cpp) - Given two lists of same size, the task is to find out if one can be converted to another, when only certain indices can be swapped in a list
+* [**Edges in MST**](problems/edges_in_mst.cpp) - Given a graph, the task is to find out for each edge, wether it would be included in every possible MST of the graph, some possible or never at all
 
 ### Game Theory
 

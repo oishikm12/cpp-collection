@@ -1,10 +1,16 @@
 #include <iostream>
+#include <vector>
 #include <unordered_map>
 #include <list>
+#include <stack>
 using namespace std;
 
 bool checkStrongConnection(unordered_map<int, list<int>> &);
 void dfsTraversal(int, unordered_map<int, bool> &, unordered_map<int, list<int>> &);
+unordered_map<int, list<int>> reversal(unordered_map<int, list<int>> &);
+vector<vector<int>> strongComponents(unordered_map<int, list<int>> &);
+void dfsIntoStack(int, unordered_map<int, list<int>> &, unordered_map<int, bool> &, stack<int> &);
+void dfsFromStack(int , unordered_map<int, list<int>> &, unordered_map<int, bool> &, vector<int> &);
 
 int main() {
     /**
@@ -20,7 +26,7 @@ int main() {
 
     unordered_map<int, list<int>> graph;
     
-    cout << "Enter space sepreated edges, delimited by lines," << endl;
+    cout << "Enter space seperated edges, delimited by lines," << endl;
     for (int i = 0; i < edges; i += 1) {
         int u, v;
         cin >> u >> v;
@@ -30,7 +36,20 @@ int main() {
     bool isSC = checkStrongConnection(graph);
 
     if (isSC) cout << "\nThe graph is strongly connected." << endl;
-    else cout << "\nThe graph is not strongly connected." << endl;
+    else {
+        cout << "\nThe graph is not strongly connected." << endl;
+
+        vector<vector<int>> components = strongComponents(graph);
+
+        if (components.size() == 0) cout << "\nThere are no strongly connected components either." << endl;
+        else {
+            cout << "\nThere are strongly connected components though," << endl;
+            for (auto &x : components) {
+                for (auto &y : x) cout << y << ' ';
+                cout << endl;
+            }
+        }
+    }
 
     cout << endl;
 
@@ -62,15 +81,7 @@ bool checkStrongConnection(unordered_map<int, list<int>> &graph) {
         vis = false;
     }
 
-    unordered_map<int, list<int>> reversedGraph;
-
-    for (auto &[node, neighbours] : graph) {
-        for (auto &neighbour : neighbours) {
-            // In order to reverse the graph, we simply push the node,
-            // into the adjacency list of neighbours
-            reversedGraph[neighbour].push_back(node);
-        }
-    }
+    unordered_map<int, list<int>> reversedGraph = reversal(graph);
 
     dfsTraversal(start, visited, reversedGraph);
 
@@ -92,5 +103,91 @@ void dfsTraversal(int node, unordered_map<int, bool> &visited, unordered_map<int
         // and if so we simply recurse to traverse that node
         if (visited[neighbour]) continue;
         dfsTraversal(neighbour, visited, graph);
+    }
+}
+
+unordered_map<int, list<int>> reversal(unordered_map<int, list<int>> &graph) {
+    unordered_map<int, list<int>> reversedGraph;
+
+    for (auto &[node, neighbours] : graph) {
+        for (auto &neighbour : neighbours) {
+            // In order to reverse the graph, we simply push the node,
+            // into the adjacency list of neighbours
+            reversedGraph[neighbour].push_back(node);
+        }
+    }
+
+    return reversedGraph;
+}
+
+vector<vector<int>> strongComponents(unordered_map<int, list<int>> &graph) {
+    // We will store the order of node visits in this stack
+    stack<int> container;
+    // We will store all components here
+    vector<vector<int>> result;
+
+    // This keeps track of all the nodes present
+    unordered_map<int, bool> visited;
+
+    for (auto &[node, neighbours] : graph) {
+        // We traverse over all nodes and its neighbours 
+        // setting the visited parameter to false
+        visited[node] = false;
+        for (auto &neighbour : neighbours) visited[neighbour] = false;
+    }
+
+    // We now perform normal DFS on the graph to get all connected components
+    for (auto &[node, vis] : visited) {
+        if (!vis) dfsIntoStack(node, graph, visited, container);
+    }
+
+    unordered_map<int, list<int>> reversedGraph = reversal(graph);
+    
+    // For the next DFS, we reset the visited values
+    for (auto &[_, vis] : visited) vis = false;
+
+    // We then pop one element by element from the stack, and then
+    // print all the strongly connected nodes to it
+    while (!container.empty()) {
+        int curr = container.top();
+        container.pop();
+
+        if (visited[curr]) continue;
+
+        vector<int> component;
+        dfsFromStack(curr, reversedGraph, visited, component);
+
+        result.push_back(component);
+    }
+
+    return result;
+}
+
+void dfsIntoStack(int node, unordered_map<int, list<int>> &graph, unordered_map<int, bool> &visited, stack<int> &container) {
+    // We mark the current node as traversed and visited
+    visited[node] = true;
+
+    for (auto &neighbour : graph[node]) {
+        // We then simply check if any of its neighbours hav'nt been visited
+        // and if so we simply recurse to traverse that node
+        if (visited[neighbour]) continue;
+        dfsIntoStack(neighbour, graph, visited, container);
+    }
+
+    // We then push the current node, after traversing all its neighbours into stack
+    container.push(node);
+}
+
+void dfsFromStack(int node, unordered_map<int, list<int>> &graph, unordered_map<int, bool> &visited, vector<int> &component) {
+    // We mark the current node as traversed and visited
+    visited[node] = true;
+    // We add this element to current strong component
+    component.push_back(node);
+
+    for (auto &neighbour : graph[node]) {
+        // We then simply check if any of its neighbours hav'nt been visited
+        // and if so we simply recurse to traverse that node
+        if (visited[neighbour]) continue;
+        dfsFromStack(neighbour, graph, visited, component);
     }
 }

@@ -14,7 +14,7 @@ int main() {
      * compare the cost to reach its neighbours via that node with whatever
      * the cost to reach them previously was
      */ 
-    cout << "\nThis program finds out shortest path between two points in a undirected weighted graph.\n" << endl;
+    cout << "\nThis program finds out shortest path between two points in a weighted graph.\n" << endl;
     int edges;
     cout << "Enter the number of edges to consider: ";
     cin >> edges;
@@ -72,15 +72,15 @@ unordered_map<int, int> dijkstraShortestPath(unordered_map<int, list<pair<int, i
             // node to the neighbour addded to the cost of travelling
             // from start to current node, is less than the cost
             // of travelling from start to this node
-            if (currDist + costToTravel < distance[neighbour]) {
-                // If we do find such a record, we remove it and
-                // insert the lesser cost route to the set
-                auto existing = path.find(make_pair(distance[neighbour], neighbour));
-                if (existing != path.end()) path.erase(existing);
+            if (currDist + costToTravel >= distance[neighbour]) continue;
+            
+            // If we do find such a record, we remove it and
+            // insert the lesser cost route to the set
+            auto existing = path.find(make_pair(distance[neighbour], neighbour));
+            if (existing != path.end()) path.erase(existing);
 
-                distance[neighbour] = currDist + costToTravel;
-                path.insert(make_pair(distance[neighbour], neighbour));
-            }
+            distance[neighbour] = currDist + costToTravel;
+            path.insert(make_pair(distance[neighbour], neighbour));
         }
     }
 

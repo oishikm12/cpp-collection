@@ -5,7 +5,7 @@
 using namespace std;
 
 vector<int> primMST(vector<vector<int>> &);
-int minKey(vector<int> &, vector<bool> &, int);
+int getMinWeightVertex(vector<int> &, vector<bool> &, int);
 
 int main() {
     /**
@@ -53,43 +53,44 @@ vector<int> primMST(vector<vector<int>> &graph) {
 
     // Vector to store constructed MST 
     vector<int> parent(vertices);
-    // Key values used to pick minimum weight edge in cut 
-    vector<int> key(vertices);
+    // Represents current weight / cost to reach this vertex
+    vector<int> weight(vertices);
     // To represent set of vertices included in MST 
-    vector<bool> mstSet(vertices); 
+    vector<bool> visited(vertices); 
   
-    // We inintialize all the keys as Max, and also set all to false
+    // We inintialize all the weights as Max, and also set all to false
     for (int i = 0; i < vertices; i += 1) { 
-        key[i] = INT_MAX;
-        mstSet[i] = false; 
+        weight[i] = INT_MAX;
+        visited[i] = false; 
     }
   
     // We always include the first vertex in MST, and then
     // Make it 0 so that this vertex is picked as first vertex. 
-    key[0] = 0; 
+    weight[0] = 0; 
     // First node becomes the root of MST
     parent[0] = -1; 
   
     // The MST will have all vertices 
     for (int count = 1; count < vertices; count += 1) { 
-        // Pick the minimum key vertex from the 
+        // Pick the minimum weight vertex from the 
         // set of vertices not yet included in MST 
-        int u = minKey(key, mstSet, vertices); 
+        int u = getMinWeightVertex(weight, visited, vertices); 
   
         // Add the picked vertex to the MST Set 
-        mstSet[u] = true; 
+        visited[u] = true; 
   
-        // Update key value and parent index of 
+        // Update weight value and parent index of 
         // the adjacent vertices of the picked vertex. 
         // Consider only those vertices which are not 
         // yet included in MST 
         for (int v = 0; v < vertices; v += 1) { 
-            // graph[u][v] is non zero only for adjacent vertices of m 
-            // mstSet[v] is false for vertices not yet included in MST 
-            // Update the key only if graph[u][v] is smaller than key[v] 
-            if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v]) {
+            // graph[u][v] is non zero only for adjacent vertices of `u`
+            if (!graph[u][v]) continue;
+            // visited[v] is false for vertices not yet included in MST 
+            // Update the weight only if graph[u][v] is smaller than weight[v] 
+            if (visited[v] == false && graph[u][v] < weight[v]) {
                 parent[v] = u;
-                key[v] = graph[u][v]; 
+                weight[v] = graph[u][v]; 
             }
         }
     } 
@@ -97,15 +98,15 @@ vector<int> primMST(vector<vector<int>> &graph) {
     return parent;
 }
 
-int minKey(vector<int> &key, vector<bool> &mstSet, int vertices)  { 
+int getMinWeightVertex(vector<int> &weight, vector<bool> &visited, int vertices)  { 
     // Initialize minimum value 
     int minimum = INT_MAX; 
     int minIndex; 
   
-    // We then simply find the minimum unvisited key
+    // We then simply find the minimum unvisited weight
     for (int v = 0; v < vertices; v += 1) { 
-        if (mstSet[v] == false && key[v] < minimum) {
-            minimum = key[v];
+        if (visited[v] == false && weight[v] < minimum) {
+            minimum = weight[v];
             minIndex = v; 
         }
     }

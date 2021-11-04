@@ -13,7 +13,7 @@ int main() {
      * In the end, we try to relax the nodes again, if further relaxation
      * is possible this denotes a negative cycle which keeps on decreasing
      */ 
-    cout << "\nThis program finds out shortest path between two points in a weighted graph or detect a negative cycle.\n" << endl;
+    cout << "\nThis program finds out shortest path between two points in a weighted graph with negative edges or detect a negative cycle (only if directed).\n" << endl;
     int edges;
     cout << "Enter the number of edges to consider: ";
     cin >> edges;

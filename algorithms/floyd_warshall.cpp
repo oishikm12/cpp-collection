@@ -45,17 +45,20 @@ vector<vector<int>> floydWarshallDist(vector<vector<int>> &graph, int vertices) 
     // NOTE: Minimal distance is same as that in initial graph
     vector<vector<int>> distances = graph;
 
+    // k represents the intermediate vertex
     for (int k = 0; k < vertices; k += 1) {
         // Pick all vertices as source one by one
         for (int i = 0; i < vertices; i += 1) {
             // Pick all vertices as destination for the above picked source
             for (int j = 0; j < vertices; j += 1) {
-                // If vertex k is on the shortest path from i to j, then 
-                // update the value of distances[i][j]
-                bool isShortest = distances[i][j] > (distances[i][k] + distances[k][j]);
-                bool isValid = distances[k][j] != INT_MAX && distances[i][k] != INT_MAX;
+                // Invalid vertex arrangement, eithher no src->inter or no inter->dest
+                if (distances[k][j] == INT_MAX || distances[i][k] == INT_MAX) continue;
 
-                if (isValid && isShortest) distances[i][j] = distances[i][k] + distances[k][j];
+                if (distances[i][j] > (distances[i][k] + distances[k][j])) {
+                    // If vertex k is on the shortest path from i to j, then 
+                    // update the value of distances[i][j]
+                    distances[i][j] = distances[i][k] + distances[k][j];
+                }
             }
         }
     }
