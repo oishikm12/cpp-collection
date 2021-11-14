@@ -184,7 +184,6 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Taj Mahal Entry**](problems/taj_mahal.cpp) - Given a list of ticket counters to enter Taj Mahal, each value represents number of people currently in waiting. If each counter processes 1 person / minute, the task is to figure out when you will get the ticket if you move to the next counter every minute
 * [**Sorting the Skills**](problems/sorting_the_skills.cpp) - Given an array representing skill points, the task is to check if it can be sorted when we can only swap adjacent skill points if they differ by 1
 * [**Collecting the Balls**](problems/collecting_the_balls.cpp) - Given a certain number of balls, two players will be taking turns in collecting balls, the first player takes an arbitary number each turn, and the other will take 1/10 of the rest. Task is to choose such an arbitary number that the first player has more than half the no. of balls by the end
-* [**8 Puzzle**](problems/8_puzzle.cpp) - Given a `3 * 3` grid, representing a state of a board with one empty cell, the task is to change the state into another with the least number of swaps
 
 ### Modulo Arithmetic
 
@@ -306,6 +305,11 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Edges in MST**](problems/edges_in_mst.cpp) - Given a graph, the task is to find out for each edge, wether it would be included in every possible MST of the graph, some possible or never at all
 
 ### Game Theory
+
+* [**Game of Nim**](problems/game_of_nim.cpp) - Given multiple sets of pebbles, two players are playing the game wherein at each turn, one can take certain or any number of pebbles from one set only. The player which cannot remove any pebbles loses, hence the task is to find out the losing player if both play optimally
+* [**8 Puzzle**](problems/8_puzzle.cpp) - Given a `3 * 3` grid, representing a state of a board with one empty cell, the task is to change the state into another with the least number of swaps
+* [**Othello**](problems/othello.cpp) - Given an Othello board with a certain state, the task is to find out the best next move such that the first player wins with the maxium score possible
+* [**Tic Tac Toe**](problems/tic_tac_toe.cpp) - Given a tic-tac-toe with partial filled cells, the task is to find out which player wins in the end
 
 ### Computational Geometry
 
