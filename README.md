@@ -14,6 +14,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Insertion Sort**](algorithms/insertion_sort.cpp) - It is a simple sorting algorithm that builds the final sorted array (or list) one item at a time
 * [**Selection Sort**](algorithms/selection_sort.cpp) - The selection sort algorithm sorts an array by repeatedly finding the minimum element (considering ascending order) from unsorted part and putting it at the beginning
 * [**Counting Sort**](algorithms/counting_sort.cpp) - It is an algorithm for sorting a collection of objects according to keys that are small integers; that is, it is an integer sorting algorithm
+* [**Radix Sort**](algorithms/radix_sort.cpp) - It is a non-comparative sorting algorithm which avoids comparison by creating and distributing elements into buckets according to their radix (singular digits). This bucketing process is repeated for each digit, while preserving the ordering of the prior step, until all digits have been considered
 * [**Merge Sort**](algorithms/merge_sort.cpp) - It is a Divide & Conquer algorithm for dividing the input array into two halves, calls itself for the two halves, and then sorts them and merges the two sorted halves
 * [**Quick Sort**](algorithms/quick_sort.cpp) - It is a Divide and Conquer algorithm for picking an element as pivot and partitioning the given array around the picked pivot, thereby moving the pivot element into its sorted position
 * [**Heap Sort**](algorithms/heap_sort.cpp) - It involves preparing the list by first turning it into a max heap. The algorithm then repeatedly swaps the first value with the last value, decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap, thereby sorting the list in this process
@@ -22,6 +23,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Linear Search**](algorithms/linear_search.cpp) - Simple Array Iteration to find a required element
 * [**Binary Search**](algorithms/binary_search.cpp) - It works by repeatedly dividing in half the portion of the list that could contain the item, until its narrowed down the possible locations to just one
 * [**A\* Search**](algorithms/a_star_search.cpp) - A\* is a graph traversal and path search algorithm, which precomputes the cost to reach the destination via heuristic function, if a certain path is taken. This way an optimal result is always guaranteed
+* [**KMP Pattern Search**](algorithms/kmp_pattern_search.cpp) - KMP matching algorithm uses degenerating property (pattern having same sub-patterns appearing more than once in the pattern) of the pattern, in order to search for a substring in a string in perfect linear time
+* [**Z Pattern Search**](algorithms/z_pattern_search.cpp) - This algorithm finds all occurrences of a pattern in a text in linear time by recording how many characters match in current sequence with that of its prefix
 * [**Fast Power**](algorithms/fast_power.cpp) - Finding out power of a number in log n time
 * [**Modular Exponentiation**](algorithms/modular_exponentiation.cpp) - Finds out a power of a number, when the exponent is large, i.e. the answer is beyond integer limits; via modulus
 * [**Extended Euclid's Algorithm**](algorithms/extended_euclid.cpp) - It is an extension to the Euclidean algorithm, and computes, in addition to the GCD of integers `a` and `b`, also the coefficients of Bézout's identity (Linear Diophantine Equation), which are integers x and y such that, ``ax + by = gcd(a, b)``
@@ -148,6 +151,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Largest Binary Rectangle**](problems/largest_binary_rectangle.cpp) - Given a binary matrix, the task is to find the area of largest rectangle covered bby `1`s
 
 ### Strings
+
+* [**Longest Prefix Suffix**](problems/longest_prefix_suffix.cpp) - Given a string, the task is to find out the longest prefix that matches a certain non-overlapping portion of the suffix of that same string
+* [**Longest Palindromic Subsequence**](problems/longest_palindromic_subsequence.cpp) - Given a string, the task is to find out how many palindromic subsequences are there, and the length of the longest one
 
 ### Recursion
 
