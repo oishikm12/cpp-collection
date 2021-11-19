@@ -301,6 +301,9 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 ### Tries
 
+* [**Maximum XOR Subarray**](problems/max_xor_subarr.cpp) - Given a list of numbers, the task is to find out maximum possible XOR of subarray
+* [**Auto-Completion**](problems/autocompletion.cpp) - Given a list of strings from a dictionary and another word, the task is to find out all possible autocomplete patterns to that word from the dictionary
+
 ### Graphs
 
 * [**Flight and Tours**](problems/catch_the_plane.cpp) - Given a list of places and the cost to travel between each via bus & plane, the task is to find the minimal cost needed to reach from the source to destination, given the passenger can take at most one flight in between
