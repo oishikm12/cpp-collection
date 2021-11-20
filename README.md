@@ -38,6 +38,7 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Tarjan's Algorithm**](algorithms/tarjan.cpp) - Unlike Kosaraju which requires two DFS traversals, strongly connected components can be found out in a single traversal, if we maintain two arrays, one to track discovery time & one to track subtree roots of possible SCC
 * [**Prim's Algorithm**](algorithms/prim_mst.cpp) - It finds the subset of edges that includes every vertex of the graph such that the sum of the weights of the edges can be minimized. It starts with the single node and explore all the adjacent nodes with all the connecting edges at every step
 * [**Kruskal's Algorithm**](algorithms/kruskal_mst.cpp) - It finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree, much like Prim
+* [**Jarvis Convex Hull**](algorithms/jarvis_convex_hull.cpp) - Given a set of points in the plane, the task is to find the Convex Hull of the set, which is the smallest convex polygon that contains all the points of it
   
 ## Data Structures
 
@@ -322,6 +323,6 @@ My own collection of useful data structures, algorithms & competitve questions, 
 
 ### Computational Geometry
 
-### Fast Fourier Transform (FLT)
-
-### Heavy Light Decomposition (HLD)
+* [**Area of Convex Polygon**](problems/area_convex_polygon.cpp) - Given `n` coordinates of a poygon in anticlockwise order, the task is to find its area if it were convex in nature, i.e. no angle over 180 and to find the distance between any two points
+* [**Non-Collinear Intersection**](problems/non_collinear_intersection.cpp) - Given 4 coordinates, which represents two lines, the task is to find out if any 3 points are collinear, if not, to find the point of intersection of the two lines
+* [**Bomb Investigation**](problems/bomb_investigation.cpp) - Given the coordinates of a bomb, the coordinates of a polygon representing the immidiate vicinity of the bomb, and the coordinates of people near it, the task is to find the probablity of a person wether they are present in the vicinity and could have planted the bomb
