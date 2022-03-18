@@ -1,495 +1,187 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <complex>
+#include <vector>
 using namespace std;
 
+typedef complex<double> base;
 typedef long long int ll;
-const ll MOD = 998244353;
 
-/** FTT Template Start **/
+const double PI = acos(-1.0);
 
-struct base {
-    double x, y;
+void getRecursiveFFT(vector<base> &, bool);
+void getIterativeFFT(vector<base> &, bool);
+vector<ll> multiplyPoly(vector<ll> &, vector<ll> &, bool);
+void printPoly(vector<ll> &, ll);
 
-    base() {
-        x = y = 0;
+int main() {
+    /**
+     * FFT simply converts coefficient representation of a 
+     * polynomial into value representation (x, P(x)) for a 
+     * series of points wherein n + 1 points are required to
+     * plot a line represented by an equation of degree n
+     * These value representation of two polynomials can then
+     * be individually multiplied to get the value form of the
+     * resulting polynomial. Inverse FFT then gives us the ans
+     */
+    cout << "\nThis program uses Fast Fourier Transform to find out the multiplication of two Polynomials\n" << endl; 
+
+    int len;
+    cout << "Enter the size of the polynomials to consider: ";
+    cin >> len;
+
+    vector<ll> one(len), two(len);
+    cout << "Enter space seperated numerical co-efficients of the first polynomial," << endl;
+    for (auto &x : one) cin >> x;
+    cout << "Enter space seperated numerical co-efficients of the second polynomial," << endl;
+    for (auto &y : two) cin >> y;
+
+    bool recursively = true;
+    cout << "\nEnter 1 for recursive computation, 0 for iterative: ";
+    cin >> recursively;
+
+    vector<ll> result = multiplyPoly(one, two, recursively);
+
+    // The exponent of each polynomial starts from 0, hence we send size - 1
+    // For the resulting polynomial it is the sum of maximum power on both polynomials
+    // Hence it is sizeofA - 1 + sizeofB - 1 = 2 * size / result.size - 2
+    cout << "\nThe multiplications of the polynomials, [";
+    printPoly(one, one.size() - 1);
+    cout << "] * [";
+    printPoly(two, two.size() - 1);
+    cout << "] are, " << endl;
+    printPoly(result, result.size() - 2);
+
+    cout << endl << endl;
+
+    return 0;
+}
+
+void getRecursiveFFT(vector<base> &arr, bool isInverse) {
+    // The difference between fft & inverse fft are so minimal
+    // that we can use a boolean to represent the switch
+    ll n = arr.size();
+
+    // One element represents a degree of 0
+    if (n == 1) return;
+
+    // Even equations are added, while odd ones are subtracted, hence 
+    // we recurse, in the end all are represnted as powers of i ~ complex no.
+    ll half = n / 2;
+    vector<base> arrEven(half);
+    vector<base> arrOdd(half);
+
+    for (ll i = 0; i < half; i += 1) {
+        // A(x) = A0(x^2) + x*A1(x^2)
+        arrEven[i] = arr[2 * i];
+        arrOdd[i] = arr[2 * i + 1];
     }
 
-    base(double a, double b): x(a), y(b) {}
-};
+    // Recursive calls
+    getRecursiveFFT(arrEven, isInverse);
+    getRecursiveFFT(arrOdd, isInverse);
 
-inline base operator+(base a, base b) {
-    return base(a.x + b.x, a.y + b.y);
-}
+    // Angle to consider ~ Omega, i.e. cube root of 1, this can also be represnted
+    // as e ^ 2 * PI / n ~ cos<th> - i * sin<th>
+    double angle = 2 * PI / n;
+    // Inverse FFT is simply reversing the angle and dividing by normalization
+    if (isInverse) angle *= -1;
+    base omega(1), omegaN(cos(angle), sin(angle));
 
-inline base operator-(base a, base b) {
-  return base(a.x - b.x, a.y - b.y);
-}
+    for (ll i = 0; i < half; i += 1) {
+        // Since complex numbers can be represnted as a circle, for the first half
+        // we have even[i] + omega * odd[i] & other even[i] - omega * odd[i]
+        arr[i] = arrEven[i] + omega * arrOdd[i];
+        arr[i + half] = arrEven[i] - omega * arrOdd[i];
 
-inline base operator*(base a, base b) {
-  return base(a.x * b.x - a.y * b.y, a.x * b.y + a.y * b.x);
-}
-
-inline base conjugate(base a) {
-  return base(a.x, -a.y);
-}
-
-ll lim = 1;
-
-vector<base> roots = {{0, 0}, {1, 0}};
-vector<ll> rev = {0, 1};
-
-const double PI = acosl(-1.0);
-
-void ensure_base(ll p) {
-    if (p <= lim) return;
-
-    ll size = 1 << p;
-
-    rev.resize(size);
-
-    for (ll i = 0; i < size; i += 1) rev[i] = (rev[i >> 1] >> 1) + ((i & 1) << (p - 1));
-    roots.resize(1 << p);
-
-    while (lim < p) {
-        double angle = 2 * PI / (1 << (lim + 1));
-        for (ll i = 1 << (lim - 1); i < (1 << lim); i += 1) {
-            roots[i << 1] = roots[i];
-            double angle_i = angle * (2 * i + 1 - (1 << lim));
-            roots[(i << 1) + 1] = base(cos(angle_i), sin(angle_i));
+        if (isInverse) {
+            // Inverse includes division by [n / 2], since in
+            // a loop, no need to exclusively state n
+            arr[i] /= 2;
+            arr[i + half] /= 2;
         }
-        lim++;
+
+        // Each point we multiply by cos<th>, sin<th>
+        omega *= omegaN;
     }
 }
 
-void fft(vector<base> &a, ll n = -1) {
-    if (n == -1) n = a.size();
+void getIterativeFFT(vector<base> &arr, bool isInverse) {
+    // The difference between fft & inverse fft is minimal
+    ll n = arr.size();
 
-    assert((n & (n - 1)) == 0);
-    ll zeros = __builtin_ctz(n);
-    ensure_base(zeros);
+    for (int i = 1, j = 0; i < n; i += 1) {
+        int bit = n >> 1;
 
-    ll shift = lim - zeros;
+        for (; j & bit; bit >>= 1) j ^= bit;
+        j ^= bit;
 
-    for (ll i = 0; i < n; i += 1) {
-        if (i < (rev[i] >> shift)) swap(a[i], a[rev[i] >> shift]);
+        if (i < j) swap(arr[i], arr[j]);
     }
 
-    for (ll k = 1; k < n; k <<= 1) { 
-        for (ll i = 0; i < n; i += 2 * k) {
-            for (ll j = 0; j < k; j++) {
-                base z = a[i + j + k] * roots[j + k];
-                a[i + j + k] = a[i + j] - z;
-                a[i + j] = a[i + j] + z;
+    for (int len = 2; len <= n; len <<= 1) {
+        // Angle to consider
+        double angle = 2 * PI / len;
+        if (isInverse) angle *= -1;
+
+        // Omega
+        base omegaLen(cos(angle), sin(angle));
+
+        for (int i = 0; i < n; i += len) {
+            base omega(1);
+            
+            for (int j = 0; j < len / 2; j += 1) {
+                base u = arr[i + j];
+                base v = arr[i + j + len / 2] * omega;
+
+                arr[i + j] = u + v;
+                arr[i + j + len / 2] = u - v;
+
+                omega *= omegaLen;
             }
         }
     }
+
+    if (isInverse) {
+        for (base &x : arr) x /= n;
+    }
 }
 
-vector<ll> multiply(vector<ll> &a, vector<ll> &b, ll eq = 0) {
-    ll need = a.size() + b.size() - 1;
-    ll p = 0;
+vector<ll> multiplyPoly(vector<ll> &first, vector<ll> &second, bool useRecursive) {
+    vector<base> firstFFT(first.begin(), first.end());
+    vector<base> secondFFT(second.begin(), second.end());
 
-    while ((1 << p) < need) p += 1;
-    ensure_base(p);
-    ll sz = 1 << p;
-    vector<base> A, B;
+    // Here we find out the number of points needed to reconstruct the coefficient form of
+    // result, i.e. n + 1 where n is the sum of max power of both polynomials
+    // However since we recurs log n times, it is better to find an n which is power of 2
+    ll n = 1;
+    while (n < first.size() + second.size()) n = n << 1;
 
-    if (sz > (ll)A.size()) A.resize(sz);
+    firstFFT.resize(n);
+    secondFFT.resize(n);
 
-    for (ll i = 0; i < (ll)a.size(); i += 1) {
-        ll x = (a[i] % MOD + MOD) % MOD;
-        A[i] = base(x & ((1 << 15) - 1), x >> 15);
-    }
+    // Function alias, for switching between recursive & iterative implementation
+    void (*getFFT)(vector<base>&, bool);
+    if (useRecursive) getFFT = getRecursiveFFT;
+    else getFFT = getIterativeFFT;
 
-    fill(A.begin() + a.size(), A.begin() + sz, base {0, 0});
-    fft(A, sz);
+    getFFT(firstFFT, false);
+    getFFT(secondFFT, false);
 
-    if (sz > (ll)B.size()) B.resize(sz);
+    for (int i = 0; i < n; i += 1) firstFFT[i] *= secondFFT[i];
+    getFFT(firstFFT, true);
 
-    if (eq) copy(A.begin(), A.begin() + sz, B.begin());
-    else {
-        for (ll i = 0; i < (ll)b.size(); i += 1) {
-            ll x = (b[i] % MOD + MOD) % MOD;
-            B[i] = base(x & ((1 << 15) - 1), x >> 15);
-        }
+    // We round the results, to prevent this NTT can be used
+    vector<ll> result(n);
+    for (int i = 0; i < n; i += 1) result[i] = round(firstFFT[i].real());
 
-        fill(B.begin() + b.size(), B.begin() + sz, base {0, 0});
-        fft(B, sz);
-    }
-
-    double ratio = 0.25 / sz;
-
-    base r2(0, -1), r3(ratio, 0), r4(0, -ratio), r5(0, 1);
-
-    for (ll i = 0; i <= (sz >> 1); i += 1) {
-        ll j = (sz - i) & (sz - 1);
-
-        base a1 = (A[i] + conjugate(A[j])), a2 = (A[i] - conjugate(A[j])) * r2;
-        base b1 = (B[i] + conjugate(B[j])) * r3, b2 = (B[i] - conjugate(B[j])) * r4;
-
-        if (i != j) {
-            base c1 = (A[j] + conjugate(A[i]));
-            base c2 = (A[j] - conjugate(A[i])) * r2;
-            base d1 = (B[j] + conjugate(B[i])) * r3;
-            base d2 = (B[j] - conjugate(B[i])) * r4;
-
-            A[i] = c1 * d1 + c2 * d2 * r5;
-            B[i] = c1 * d2 + c2 * d1;
-        }
-
-        A[j] = a1 * b1 + a2 * b2 * r5;
-        B[j] = a1 * b2 + a2 * b1;
-    }
-
-    fft(A, sz);
-    fft(B, sz);
-
-    vector<ll> res(need);
-
-    for (ll i = 0; i < need; i++) {
-        ll aa = A[i].x + 0.5;
-        ll bb = B[i].x + 0.5;
-        ll cc = A[i].y + 0.5;
-        res[i] = (aa + ((bb % MOD) << 15) + ((cc % MOD) << 30)) % MOD;
-    }
-
-    return res;
+    return result;
 }
 
-template<int32_t MOD> 
-struct modint {
-    int32_t value;
-
-    modint() = default;
-    modint(int32_t value_): value(value_) {}
-    
-    inline modint<MOD> operator+(modint<MOD> other) const {
-        int32_t c = this->value + other.value;
-        return modint<MOD> (c >= MOD ? c - MOD : c);
+void printPoly(vector<ll> &polynomial, ll expo) {
+    for (auto &x : polynomial) {
+        // Simple variable coefficient representaion based on exponents
+        if (x != 0) cout << x;
+        if (expo > 0) cout << "(x^" << expo << ") + ";
+        expo -= 1;
     }
-
-    inline modint<MOD> operator-(modint<MOD> other) const {
-        int32_t c = this->value - other.value;
-        return modint<MOD> (c < 0 ? c + MOD : c);
-    }
-
-    inline modint<MOD> operator*(modint<MOD> other) const {
-        int32_t c = (int64_t) this -> value * other.value % MOD;
-        return modint<MOD> (c < 0 ? c + MOD : c);
-    }
-
-    inline modint<MOD>& operator+=(modint<MOD> other) {
-        this -> value += other.value;
-        if (this -> value >= MOD) this -> value -= MOD;
-        return *this;
-    }
-
-    inline modint<MOD>& operator-=(modint<MOD> other) {
-        this -> value -= other.value;
-        if (this -> value < 0) this -> value += MOD;
-        return *this;
-    }
-
-    inline modint<MOD>& operator*=(modint<MOD> other) {
-        this -> value = (int64_t) this -> value * other.value % MOD;
-        if (this -> value < 0) this -> value += MOD;
-        return *this;
-    }
-
-    inline modint<MOD> operator-() const {
-        return modint<MOD> (this -> value ? MOD - this -> value : 0);
-    }
-
-    modint<MOD> pow(uint64_t k) const {
-        modint<MOD> x = *this;
-        modint<MOD> y = 1;
-
-        for (; k; k >>= 1) {
-            if (k & 1) y *= x;
-            x *= x;
-        }
-
-        return y;
-    }
-
-    modint<MOD> inv() const {
-        return pow(MOD - 2);
-    }
-
-    inline modint<MOD> operator/(modint<MOD> other) const {
-        return *this * other.inv();
-    }
-
-    inline modint<MOD> operator/=(modint<MOD> other) {
-        return *this *= other.inv();
-    }
-
-    inline bool operator==(modint<MOD> other) const {
-        return value == other.value;
-    }
-
-    inline bool operator!=(modint<MOD> other) const {
-        return value != other.value;
-    }
-
-    inline bool operator<(modint<MOD> other) const {
-        return value < other.value;
-    }
-
-    inline bool operator>(modint<MOD> other) const {
-        return value > other.value;
-    }
-};
-
-template <int32_t MOD> 
-modint<MOD> operator*(int64_t value, modint<MOD> n) {
-    return modint<MOD> (value) * n;
 }
-
-template <int32_t MOD> 
-modint<MOD> operator*(int32_t value, modint<MOD> n) {
-    return modint<MOD> (value % MOD) * n;
-}
-
-template <int32_t MOD> 
-ostream& operator<<(ostream &out, modint<MOD> n) {
-    return out << n.value;
-}
-
-typedef modint<MOD> mint;
-
-struct poly {
-    vector<mint> a;
-
-    inline void normalize() {
-        while ((ll) a.size() && a.back() == 0) a.pop_back();
-    }
-
-    template<class...Args> 
-    poly(Args...args): a(args...) {}
-
-    poly(const initializer_list<mint> &x): a(x.begin(), x.end()) {}
-
-    ll size() const {
-        return (ll) a.size();
-    }
-
-    inline mint coef(const ll i) const {
-        return (i < (ll)a.size() && i >= 0) ? a[i] : mint(0);
-    }
-
-    mint operator[](const ll i) const {
-        return (i < (ll)a.size() && i >= 0) ? a[i] : mint(0);
-    }
-
-    bool is_zero() const {
-        for (ll i = 0; i < size(); i += 1) if (a[i] != 0) return 0;
-        return 1;
-    }
-
-    poly operator+(const poly &x) const {
-        ll n = max(size(), x.size());
-        vector<mint> ans(n);
-
-        for (ll i = 0; i < n; i += 1) ans[i] = coef(i) + x.coef(i);
-
-        while ((ll)ans.size() && ans.back() == 0) ans.pop_back();
-        return ans;
-    }
-
-    poly operator-(const poly &x) const {
-        ll n = max(size(), x.size());
-        vector<mint> ans(n);
-
-        for (ll i = 0; i < n; i += 1) ans[i] = coef(i) - x.coef(i);
-
-        while ((ll)ans.size() && ans.back() == 0) ans.pop_back();
-        return ans;
-    }
-
-    poly operator*(const poly &b) const {
-        if (is_zero() || b.is_zero()) return {};
-
-        vector<ll> A, B;
-
-        for (auto x: a) A.push_back(x.value);
-        for (auto x: b.a) B.push_back(x.value);
-
-        auto res = multiply(A, B, (A == B));
-        vector<mint> ans;
-
-        for (auto x: res) ans.push_back(mint(x));
-
-        while ((ll) ans.size() && ans.back() == 0) ans.pop_back();
-        return ans;
-    }
-
-    poly operator*(const mint &x) const {
-        ll n = size();
-        vector<mint> ans(n);
-        for (ll i = 0; i < n; i += 1) ans[i] = a[i] * x;
-        return ans;
-    }
-
-    poly operator/(const mint &x) const {
-        return (*this) * x.inv();
-    }
-
-    poly& operator+=(const poly &x) {
-        return *this = (*this) + x;
-    }
-
-    poly& operator-=(const poly &x) {
-        return *this = (*this) - x;
-    }
-
-    poly& operator*=(const poly &x) {
-        return *this = (*this) * x;
-    }
-
-    poly& operator*=(const mint &x) {
-        return *this = (*this) * x;
-    }
-
-    poly& operator/=(const mint &x) {
-        return *this = (*this) / x;
-    }
-
-    poly mod_xk(ll k) const {
-        return {a.begin(), a.begin() + min(k, size())};
-    }
-
-    poly mul_xk(ll k) const {
-        poly ans( * this);
-        ans.a.insert(ans.a.begin(), k, 0);
-        return ans;
-    }
-
-    poly div_xk(ll k) const {
-        return vector<mint> (a.begin() + min(k, (ll) a.size()), a.end());
-    }
-
-    poly substr(ll l, ll r) const {
-        l = min(l, size());
-        r = min(r, size());
-        return vector<mint> (a.begin() + l, a.begin() + r);
-    }
-
-    poly reverse_it(ll n, bool rev = 0) const {
-        poly ans(*this);
-
-        if (rev) ans.a.resize(max(n, (ll)ans.a.size()));
-
-        reverse(ans.a.begin(), ans.a.end());
-        return ans.mod_xk(n);
-    }
-
-    poly differentiate() const {
-        ll n = size();
-        vector<mint> ans(n);
-        for (ll i = 1; i < size(); i += 1) ans[i - 1] = coef(i) * i;
-        return ans;
-    }
-
-    poly inverse(ll n) const {
-        assert(!is_zero());
-        assert(a[0] != 0);
-        poly ans {mint(1) / a[0]};
-
-        for (ll i = 1; i < n; i *= 2) {
-            ans = (ans * mint(2) - ans * ans * mod_xk(2 * i)).mod_xk(2 * i);
-        }
-        return ans.mod_xk(n);
-    }
-
-    pair<poly, poly> divmod_slow(const poly &b) const {
-        vector<mint> A(a);
-        vector<mint> ans;
-
-        while (A.size() >= b.a.size()) {
-            ans.push_back(A.back() / b.a.back());
-            if (ans.back() != mint(0)) {
-                for (size_t i = 0; i < b.a.size(); i += 1) {
-                    A[A.size() - i - 1] -= ans.back() * b.a[b.a.size() - i - 1];
-                }
-            }
-            A.pop_back();
-        }
-
-        reverse(ans.begin(), ans.end());
-        return {ans, A};
-    }
-
-    pair<poly, poly> divmod(const poly &b) const {
-        if (size() < b.size()) return {poly {0}, *this};
-
-        ll d = size() - b.size();
-        if (min(d, b.size()) < 250) return divmod_slow(b);
-
-        poly D = (reverse_it(d + 1) * b.reverse_it(d + 1).inverse(d + 1)).mod_xk(d + 1).reverse_it(d + 1, 1);
-        return {D, *this - (D * b)};
-    }
-
-    poly operator/(const poly &t) const {
-        return divmod(t).first;
-    }
-
-    poly operator%(const poly &t) const {
-        return divmod(t).second;
-    }
-
-    poly& operator/=(const poly &t) {
-        return *this = divmod(t).first;
-    }
-
-    poly& operator%=(const poly &t) {
-        return *this = divmod(t).second;
-    }
-
-    mint eval(mint x) {
-        mint ans(0);
-        for (ll i = (ll) size() - 1; i >= 0; i -= 1) {
-            ans *= x;
-            ans += a[i];
-        }
-        return ans;
-    }
-
-    poly buidouble(vector<poly> &ans, ll v, ll l, ll r, vector<mint> &vec) {
-        if (l == r) return ans[v] = poly({-vec[l], 1});
-        ll mid = (l + r) >> 1;
-        return ans[v] = buidouble(ans, 2 * v, l, mid, vec) * buidouble(ans, 2 * v + 1, mid + 1, r, vec);
-    }
-
-    vector<mint> eval(vector<poly> &tree, ll v, ll l, ll r, vector<mint> &vec) {
-        if (l == r) return {eval(vec[l])};
-
-        if (size() < 100) {
-            vector<mint> ans(r - l + 1, 0);
-            for (ll i = l; i <= r; i += 1) ans[i - l] = eval(vec[i]);
-            return ans;
-        }
-
-        ll mid = (l + r) >> 1;
-        auto A = (*this % tree[2 * v]).eval(tree, 2 * v, l, mid, vec);
-        auto B = (*this % tree[2 * v + 1]).eval(tree, 2 * v + 1, mid + 1, r, vec);
-        A.insert(A.end(), B.begin(), B.end());
-        return A;
-    }
-
-    vector<mint> eval(vector<mint> x) {
-        ll n = x.size();
-        if (is_zero()) return vector<mint> (n, mint(0));
-
-        vector<poly> tree(4 * n);
-        buidouble(tree, 1, 0, n - 1, x);
-        return eval(tree, 1, 0, n - 1, x);
-    }
-};
-
-poly mul(ll l, ll r, vector<mint> &a) {
-    if (l == r) return poly({-a[l], 1});
-    ll mid = (l + r) >> 1;
-    return mul(l, mid, a) * mul(mid + 1, r, a);
-}
-
-/** FTT Template End **/

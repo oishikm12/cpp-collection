@@ -39,6 +39,8 @@ My own collection of useful data structures, algorithms & competitve questions, 
 * [**Prim's Algorithm**](algorithms/prim_mst.cpp) - It finds the subset of edges that includes every vertex of the graph such that the sum of the weights of the edges can be minimized. It starts with the single node and explore all the adjacent nodes with all the connecting edges at every step
 * [**Kruskal's Algorithm**](algorithms/kruskal_mst.cpp) - It finds a minimum spanning forest of an undirected edge-weighted graph. If the graph is connected, it finds a minimum spanning tree, much like Prim
 * [**Jarvis Convex Hull**](algorithms/jarvis_convex_hull.cpp) - Given a set of points in the plane, the task is to find the Convex Hull of the set, which is the smallest convex polygon that contains all the points of it
+* [**Fast Fourier Transform**](algorithms/fast_fourier_transform.cpp) - A Fast Fourier Transform is an algorithm that computes the discrete Fourier transform of a sequence, or its inverse. This allows us to perform multiplications of polynomials and large numbers in less than quadratic time
+* [**Heavy Light Decomposition**](algorithms/heavy_light_decomposition.cpp) - In combinatorial mathematics and theoretical computer science, heavy path decomposition is a technique for decomposing a rooted tree into a set of paths.
   
 ## Data Structures
 

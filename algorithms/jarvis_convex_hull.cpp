@@ -21,7 +21,7 @@ int main() {
     cin >> n;
 
     vector<pair<int, int>> points(n);
-    cout << "\Enter space seperated line delimited coordinates of points to consider," << endl;
+    cout << "\nEnter space seperated line delimited coordinates of points to consider," << endl;
     for (auto &[x, y] : points) cin >> x >> y;
 
     cout << "\nThe coordinates of the convex hull are," << endl;
